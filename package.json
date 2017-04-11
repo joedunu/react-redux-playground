@@ -1,0 +1,23 @@
+{
+  "name": "y",
+  "version": "0.0.1",
+  "description": "Example implementation of react-redux",
+  "main": "index.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joedunu/react-redux-example.git"
+  },
+  "keywords": [
+    "react",
+    "redux"
+  ],
+  "author": "Anuradha Dunuhappawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joedunu/react-redux-example/issues"
+  },
+  "homepage": "https://github.com/joedunu/react-redux-example#readme"
+}
