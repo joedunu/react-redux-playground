@@ -9,15 +9,15 @@ import Header from '../header/Header'
 const history = createBrowserHistory()
 
 class App extends Component {
-    render () {
-        return (
-            <Router history={history}>
-                <div>
-                    <Header history={history}/>
-                </div>
-            </Router>
-        )
-    }
+  render () {
+    return (
+      <Router history={history}>
+        <div>
+          <Header history={history} />
+        </div>
+      </Router>
+    )
+  }
 }
 
 export default App
