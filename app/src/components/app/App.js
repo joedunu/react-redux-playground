@@ -4,7 +4,8 @@ import {
 } from 'react-router-dom'
 import createBrowserHistory from 'history/createBrowserHistory'
 
-import Header from '../header/Header'
+import Header from '../common/header/Header'
+import UserRegistrationForm from '../userRegistrationForm/UserRegistrationForm'
 
 const history = createBrowserHistory()
 
@@ -14,6 +15,7 @@ class App extends Component {
       <Router history={history}>
         <div>
           <Header history={history} />
+          <UserRegistrationForm history={history} />
         </div>
       </Router>
     )
