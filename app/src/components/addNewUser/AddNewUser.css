@@ -1,0 +1,14 @@
+.addNewUser {
+  background-color: white;
+  padding: 40px;
+  & input {
+    padding: 10px;
+    margin-left: 10px;
+  }
+  .first-name {
+    background-color: aqua;
+  }
+  & span {
+    padding: 10px;
+  }
+}

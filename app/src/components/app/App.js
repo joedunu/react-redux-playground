@@ -5,7 +5,9 @@ import {
 import createBrowserHistory from 'history/createBrowserHistory'
 
 import Header from '../common/header/Header'
-import UserRegistrationForm from '../userRegistrationForm/UserRegistrationForm'
+import AddNewUser from '../addNewUser/AddNewUser'
+import VisibleUsersList from '../../containers/VisibleUsersList'
+import Footer from '../footer/Footer'
 
 const history = createBrowserHistory()
 
@@ -15,7 +17,9 @@ class App extends Component {
       <Router history={history}>
         <div>
           <Header history={history} />
-          <UserRegistrationForm history={history} />
+          <AddNewUser history={history} />
+          <VisibleUsersList />
+          <Footer />
         </div>
       </Router>
     )

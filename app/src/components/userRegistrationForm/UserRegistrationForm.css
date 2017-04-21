@@ -1,8 +1,0 @@
-.userRegistrationForm {
-    background-color: white;
-    padding: 40px;
-    & input {
-        padding: 10px;
-        margin-left: 10px;
-    }
-}
