@@ -1,12 +1,12 @@
 let nextUserId = 0
-export const addUser = (firstName, lastName) => {
-  return {
-    type: 'ADD_USER',
-    id: nextUserId++,
-    firstName,
-    lastName
-  }
-}
+// export const addUser = (firstName, lastName) => {
+//   return {
+//     type: 'ADD_USER',
+//     id: nextUserId++,
+//     firstName,
+//     lastName
+//   }
+// }
 
 export const setVisibilityFilter = (filter) => {
   return {

@@ -1,19 +1,15 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const User = ({ onClick, completed, firstName, lastName }) => (
+const User = ({ onClick, firstName, lastName }) => (
   <li
-    onClick={onClick}
-    style={{
-      textDecoration: completed ? 'line-through' : 'none'
-    }}
-  >
+    onClick={onClick} >
     {firstName} {lastName}
   </li>
 )
 
 User.propTypes = {
   onClick: PropTypes.func.isRequired,
-  completed: PropTypes.bool.isRequired,
   firstName: PropTypes.string.isRequired,
   lastName: PropTypes.string.isRequired
 }
