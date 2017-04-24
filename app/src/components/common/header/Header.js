@@ -3,7 +3,9 @@ import styles from './Header.css'
 
 const Header = () => (
   <div className={styles.header}>
-    <h1>React Redux Example</h1>
+    <nav className='navbar navbar-light bg-faded'>
+      <a className='navbar-brand' href='#'>React Redux Example</a>
+    </nav>
   </div>
 )
 

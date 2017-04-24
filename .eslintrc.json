@@ -1,3 +1,7 @@
 {
-  "extends": ["standard", "standard-react"]
+  "plugins": ["jest"],
+  "extends": ["standard", "standard-react", "standard-jsx"],
+  "env": {
+    "jest": true
+  }
 }
