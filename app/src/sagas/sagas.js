@@ -24,8 +24,8 @@ export function * fetchData () {
 
 export function * addUser (user) {
   try {
-    const data = yield call(request.post, 'http://localhost:3000/customers', user.data)
-    yield put({type: 'ADD_USER_SUCCEEDED', data})
+    yield call(request.post, 'http://localhost:3000/customers', user.data)
+    yield put({type: 'FETCH_REQUESTED'})
   } catch (error) {
     yield put({type: 'ADD_USER_FAILD', error})
   }
