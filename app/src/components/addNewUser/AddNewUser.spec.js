@@ -3,7 +3,7 @@ import {shallow, mount} from 'enzyme'
 import {shallowToJson} from 'enzyme-to-json'
 import AddNewUser from './AddNewUser'
 
-describe('User Registration Form', () => {
+describe.skip('User Registration Form', () => {
   test('should pass snapshot test', () => {
     const component = shallow(<AddNewUser />)
     const tree = shallowToJson(component)

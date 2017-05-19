@@ -5,33 +5,51 @@ import PropTypes from 'prop-types'
 import './AddNewUser.css'
 
 class AddNewUser extends Component {
-  render () {
-    let firstName
-    let lastName
+  constructor (props) {
+    super(props)
+    this.state = {
+      firstName: {},
+      lastName: {}
+    }
+
+    this.onSubmit = this.onSubmit.bind(this)
+    this.updateState = this.updateState.bind(this)
+  }
+
+  onSubmit (event) {
+    event.preventDefault()
     let {store} = this.props
+    let {firstName, lastName} = this.state
+    if (!firstName.value.trim() || !lastName.value.trim()) {
+      return
+    }
+    store.dispatch({
+      type: 'ADD_USER',
+      data: {
+        firstName: firstName.value, lastName: lastName.value
+      }
+    })
+    firstName.value = ''
+    lastName.value = ''
+  }
+
+  updateState (field, value) {
+    this.setState({
+      field: value
+    })
+  }
+
+  render () {
     return (
       <div className='addNewUser'>
-        <form onSubmit={e => {
-          e.preventDefault()
-          if (!firstName.value.trim() || !lastName.value.trim()) {
-            return
-          }
-          store.dispatch({
-            type: 'ADD_USER',
-            data: {
-              firstName: firstName.value, lastName: lastName.value
-            }
-          })
-          firstName.value = ''
-          lastName.value = ''
-        }}>
+        <form onSubmit={this.onSubmit}>
           <div className='row'>
             <span>First Name: </span><input className='first-name' ref={node => {
-              firstName = node
+              this.state.firstName = node
             }}
           />
             <span>Last Name: </span><input ref={node => {
-              lastName = node
+              this.state.lastName = node
             }} />
             <span>Date of Birth: </span><input />
           </div>
