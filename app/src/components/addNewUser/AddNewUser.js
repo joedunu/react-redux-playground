@@ -12,11 +12,11 @@ class AddNewUser extends Component {
       lastName: {}
     }
 
-    this.onSubmit = this.onSubmit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
     this.updateState = this.updateState.bind(this)
   }
 
-  onSubmit (event) {
+  handleSubmit (event) {
     event.preventDefault()
     let {store} = this.props
     let {firstName, lastName} = this.state
@@ -42,7 +42,7 @@ class AddNewUser extends Component {
   render () {
     return (
       <div className='addNewUser'>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <div className='row'>
             <span>First Name: </span><input className='first-name' ref={node => {
               this.state.firstName = node

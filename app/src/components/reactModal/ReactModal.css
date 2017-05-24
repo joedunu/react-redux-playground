@@ -1,0 +1,41 @@
+.Modal {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  background-color: #fff;
+  border: 1px solid #D5D8DC;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  //transition: transform 4s;
+  animation: slide 0.5s forwards;
+  //animation-delay: 2s;
+  &.out {
+    animation: slide 0.5s reverse;
+  }
+}
+
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #AED6F1;
+  opacity: 0.75;
+  transition: background-color 1s ease-in-out;
+}
+
+@-webkit-keyframes slide {
+  100% { top: 50% }
+}
+
+@keyframes slide {
+  100% { top: 50% }
+}

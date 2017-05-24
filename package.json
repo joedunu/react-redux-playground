@@ -30,6 +30,7 @@
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-modal": "^1.7.7",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
@@ -117,11 +118,19 @@
   "babel": {
     "presets": [
       "react",
-      ["es2015", {"modules": false, "loose": true}]
+      [
+        "es2015",
+        {
+          "modules": false,
+          "loose": true
+        }
+      ]
     ],
     "env": {
       "test": {
-        "plugins": ["transform-es2015-modules-commonjs"]
+        "plugins": [
+          "transform-es2015-modules-commonjs"
+        ]
       }
     }
   }
