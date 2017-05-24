@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "NODE_ENV=test jest --coverage && cat ./coverage/lcov.info | istanbul check-coverage",
+    "test": "NODE_ENV=test jest && istanbul check-coverage",
     "lint": "standard --verbose | snazzy"
   },
   "repository": {
@@ -94,16 +94,25 @@
     ]
   },
   "jest": {
-    "verbose": true,
-    "collectCoverage": false,
+    "verbose": false,
+    "collectCoverage": true,
     "moduleNameMapper": {
       "\\.(css)$": "jest-css-modules"
     },
-    "globals": {},
     "collectCoverageFrom": [
-      "app/**",
-      "!**spec**"
-    ]
+      "app/**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "app/src/index.js",
+      "app/storybook.js",
+      "spec.js",
+      ".stories.js",
+      "/assets/",
+      "/sagas/"
+    ],
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    }
   },
   "babel": {
     "presets": [
