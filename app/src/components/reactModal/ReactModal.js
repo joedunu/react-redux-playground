@@ -36,8 +36,7 @@ class ReactModal extends Component {
         <button className='btn btn-primary' onClick={this.handleOpenModal}>Open Modal</button>
         <Modal
           isOpen={this.state.isModalOpen}
-          onAfterOpen={() => {}
-          }
+          onAfterOpen={this.handleOpenModal}
           onRequestClose={this.handleCloseModal}
           closeTimeoutMS={500}
           // style={modalStyle}
