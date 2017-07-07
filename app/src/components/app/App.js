@@ -16,13 +16,13 @@ const history = createBrowserHistory()
 
 class App extends Component {
   render () {
-    const {store} = this.props
+    // const {store} = this.props
     return (
       <Router history={history}>
         <div>
           <Header history={history} />
-          <AddNewUser history={history} store={store} />
-          <VisibleUsersList store={store} />
+          <AddNewUser history={history} />
+          <VisibleUsersList />
           <Footer />
           <Route path='/react-modal' component={ReactModal} />
         </div>

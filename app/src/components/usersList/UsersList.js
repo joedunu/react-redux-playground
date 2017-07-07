@@ -4,8 +4,7 @@ import User from '../user/User'
 
 class UsersList extends Component {
   componentDidMount () {
-    let {store} = this.props
-    store.dispatch({type: 'FETCH_REQUESTED'})
+    this.props.fetchAllUsers()
   }
 
   render () {
@@ -31,7 +30,7 @@ UsersList.propTypes = {
     lastName: PropTypes.string.isRequired
   }).isRequired).isRequired,
   onUserClick: PropTypes.func.isRequired,
-  store: PropTypes.object.isRequired
+  fetchAllUsers: PropTypes.func.isRequired
 }
 
 export default UsersList

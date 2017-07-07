@@ -23,6 +23,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onUserClick: (id) => {
       dispatch(toggleUser(id))
+    },
+    fetchAllUsers: () => {
+      dispatch({type: 'FETCH_REQUESTED'})
     }
   }
 }

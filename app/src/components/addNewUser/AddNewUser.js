@@ -68,7 +68,7 @@ class AddNewUser extends Component {
 }
 
 AddNewUser.propTypes = {
-  store: PropTypes.object.isRequired
+  // store: PropTypes.object.isRequired
 }
 
 export default connect()(AddNewUser)
