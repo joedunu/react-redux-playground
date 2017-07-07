@@ -5,6 +5,7 @@ import User from '../user/User'
 class UsersList extends Component {
   componentDidMount () {
     this.props.fetchAllUsers()
+    this.props.fetchAccounts()
   }
 
   render () {
@@ -30,7 +31,8 @@ UsersList.propTypes = {
     lastName: PropTypes.string.isRequired
   }).isRequired).isRequired,
   onUserClick: PropTypes.func.isRequired,
-  fetchAllUsers: PropTypes.func.isRequired
+  fetchAllUsers: PropTypes.func.isRequired,
+  fetchAccounts: PropTypes.func.isRequired
 }
 
 export default UsersList

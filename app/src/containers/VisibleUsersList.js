@@ -26,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     fetchAllUsers: () => {
       dispatch({type: 'FETCH_REQUESTED'})
+    },
+    fetchAccounts: () => {
+      dispatch({type: 'FETCH_ACCOUNT_REQUESTED'})
     }
   }
 }

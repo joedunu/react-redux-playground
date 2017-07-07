@@ -22,6 +22,15 @@ export function * fetchData () {
   }
 }
 
+export function * fetchAccount () {
+  try {
+    const data = yield call(request.get, 'http://localhost:3000/accounts')
+    yield put({type: 'FETCH_ACCOUNT_SUCCEEDED', data})
+  } catch (error) {
+    yield put({type: 'FETCH_ACCOUNT_FAILED', error})
+  }
+}
+
 export function * addUser (user) {
   try {
     yield call(request.post, 'http://localhost:3000/customers', user.data)
@@ -39,11 +48,16 @@ function * watchFetchData () {
   yield takeEvery('FETCH_REQUESTED', fetchData)
 }
 
+function * watchFetchAccount () {
+  yield takeEvery('FETCH_ACCOUNT_REQUESTED', fetchAccount)
+}
+
 // single entry point to start all Sagas at once
 export default function * rootSaga () {
   yield [
     watchIncrementAsync(),
     watchFetchData(),
-    watchCreateUser()
+    watchCreateUser(),
+    watchFetchAccount()
   ]
 }
