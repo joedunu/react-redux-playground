@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {
   BrowserRouter as Router,
   Route
@@ -35,4 +36,4 @@ App.propTypes = {
   store: PropTypes.object
 }
 
-export default App
+export default connect()(App)

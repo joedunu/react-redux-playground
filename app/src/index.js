@@ -12,8 +12,17 @@ import rootReducer from './reducers/index'
 const rootElement = document.getElementById('app')
 
 let sagaMiddleware = createSagaMiddleware()
-let store = createStore(rootReducer,
-  compose(applyMiddleware(sagaMiddleware)))
+const middleware = [sagaMiddleware]
+
+const composeEnhancers = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
+const enhancer = composeEnhancers(
+  applyMiddleware(...middleware)
+)
+
+const store = createStore(
+  rootReducer,
+  enhancer
+)
 
 sagaMiddleware.run(rootSaga)
 
