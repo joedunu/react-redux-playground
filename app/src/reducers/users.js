@@ -1,3 +1,8 @@
+'use strict'
+
+export const FETCH_USER_SUCCEEDED = 'FETCH_USER_SUCCEEDED'
+export const FETCH_USER_REQUESTED = 'FETCH_USER_REQUESTED'
+
 const user = (state = {}, action) => {
   switch (action.type) {
     // case 'ADD_USER':
@@ -32,7 +37,7 @@ const users = (state = [], action) => {
       return state.map(t =>
         user(t, action)
       )
-    case 'FETCH_SUCCEEDED':
+    case FETCH_USER_SUCCEEDED:
       console.log('Action: ', action)
       return action.data.data
     case 'ADD_USER_SUCCEEDED':
@@ -42,6 +47,12 @@ const users = (state = [], action) => {
     default:
       return state
   }
+}
+
+// Action Createors
+
+export const fetchUser = () => {
+  return {type: FETCH_USER_REQUESTED}
 }
 
 export default users

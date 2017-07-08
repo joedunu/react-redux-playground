@@ -1,4 +1,6 @@
 'use strict'
+
+// Actions
 export const CREATE_ACCOUNT = 'CREATE_ACCOUNT'
 export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT'
 export const FETCH_ACCOUNT = 'FETCH_ACCOUNT'
