@@ -12,6 +12,7 @@ class UsersList extends Component {
     let {users, onUserClick} = this.props
     return (
       <ul>
+
         {users.map(user =>
           <User
             key={user.id}

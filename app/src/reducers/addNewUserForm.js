@@ -8,9 +8,16 @@ export const CREATE_USER_REQUESTED = 'USER/CREATE/REQUESTED'
 export const CREATE_USER_SUCCEEDED = 'USER/CREATE/SUCCEEDED'
 export const CREATE_USER_FAILED = 'USER/CREATE/FAILED'
 
+export const UPDATE_USER_FIELD = 'USER/UPDATE_FIELD'
+
 export const TOGGLE_USER = 'USER/TOGGLE'
 
-const user = (state = {}, action) => {
+const initialState = {
+  firstName: '',
+  lastName: ''
+}
+
+const addNewUserForm = (state = {...initialState}, action) => {
   switch (action.type) {
     // case 'ADD_USER':
     //   return {
@@ -27,7 +34,10 @@ const user = (state = {}, action) => {
       return Object.assign({}, state, {
         completed: !state.completed
       })
-
+    case UPDATE_USER_FIELD:
+      return {
+        ...state
+      }
     default:
       return state
   }
@@ -51,6 +61,10 @@ const users = (state = [], action) => {
       console.log('Action data: ', action.user.data)
       console.log('State: ', state)
       return state.push(action.data.data)
+    case UPDATE_USER_FIELD:
+      return {
+        ...state
+      }
     default:
       return state
   }

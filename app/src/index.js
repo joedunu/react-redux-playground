@@ -5,7 +5,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import createSagaMiddleware from 'redux-saga'
-import rootSaga from './sagas/sagas'
+import rootSaga from './sagas'
 
 import App from './components/app/App'
 import rootReducer from './reducers/index'

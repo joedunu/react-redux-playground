@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import { toggleUser } from '../actions'
 import UsersList from '../components/usersList/UsersList'
 
-import {fetchUser} from '../reducers/users'
-import {FETCH_ACCOUNT} from '../reducers/account'
+import { fetchUsersRequest } from '../reducers/users'
+import { fetchAccountRequest } from '../reducers/account'
 
 const getVisibleUsers = (users, filter) => {
   switch (filter) {
@@ -30,10 +30,10 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(toggleUser(id))
     },
     fetchAllUsers: () => {
-      dispatch(fetchUser())
+      dispatch(fetchUsersRequest())
     },
     fetchAccounts: () => {
-      dispatch({type: 'FETCH_ACCOUNT_REQUESTED'})
+      dispatch(fetchAccountRequest())
     }
   }
 }
