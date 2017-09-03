@@ -1,6 +1,11 @@
+'use strict'
+
 import { connect } from 'react-redux'
 import { toggleUser } from '../actions'
 import UsersList from '../components/usersList/UsersList'
+
+import { fetchUsersRequest } from '../reducers/users'
+import { fetchAccountRequest } from '../reducers/account'
 
 const getVisibleUsers = (users, filter) => {
   switch (filter) {
@@ -23,6 +28,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onUserClick: (id) => {
       dispatch(toggleUser(id))
+    },
+    fetchAllUsers: () => {
+      dispatch(fetchUsersRequest())
+    },
+    fetchAccounts: () => {
+      dispatch(fetchAccountRequest())
     }
   }
 }

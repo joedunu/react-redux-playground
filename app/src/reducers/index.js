@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux'
 import users from './users'
+import account from './account'
 import visibilityFilter from './visibilityFilter'
+import { reducer as formReducer } from 'redux-form'
 
-const exampleApp = combineReducers({
+const rootReducer = combineReducers({
+  account,
   users,
-  visibilityFilter
+  visibilityFilter,
+  form: formReducer
 })
 
-export default exampleApp
+export default rootReducer
