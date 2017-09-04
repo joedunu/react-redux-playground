@@ -4,12 +4,54 @@ import { Field, reduxForm } from 'redux-form'
 
 import './AddNewUser.css'
 
+const validate = values => {
+  const errors = {}
+  if (!values.firstName) {
+    errors.firstName = 'Required'
+  } else if (values.firstName.length < 2) {
+    errors.firstName = 'Must be 2 characters or more'
+  }
+  if (!values.lastName) {
+    errors.lastName = 'Required'
+  } else if (values.lastName.length < 2) {
+    errors.lastName = 'Must be 2 characters or more'
+  }
+  if (!values.email) {
+    errors.email = 'Required'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email address'
+  }
+  if (!values.mobile) {
+    errors.mobile = 'Required'
+  } else if (isNaN(Number(values.mobile))) {
+    errors.mobile = 'Must be a number'
+  }
+  return errors
+}
+
+const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
+  <div className='col-6'>
+    <div className='row'>
+      <label htmlFor={input.name}>{label} </label>&nbsp;
+      <input {...input} placeholder={label} type={type}/>
+    </div>
+    <div className='row'>
+      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+    </div>
+
+  </div>
+)
+
 const AddNewUserForm = props => {
   return (
-    <form onSubmit={props.onSubmit}>
-      <div>
-        <label htmlFor='firstName'>First Name</label>
-        <Field name='firstName' component='input' type='text'/>
+    <form className='container' onSubmit={props.handleSubmit}>
+      <div className='row'>
+        <Field name='firstName' component={renderField} type='text' label='First Name' />
+        <Field name='lastName' component={renderField} type='text' label='Last Name' />
+      </div>
+      <div className='row'>
+        <Field name='email' component={renderField} type='text' label='Email' />
+        <Field name='mobile' component={renderField} type='text' label='Mobile' />
       </div>
       <div className='row'>
         <div className='col-6'>
@@ -24,9 +66,10 @@ const AddNewUserForm = props => {
 }
 
 AddNewUserForm.propTypes = {
-  onSubmit: PropTypes.func
+  handleSubmit: PropTypes.func
 }
 
 export default reduxForm({
-  form: 'addNewUser'
+  form: 'addNewUser',
+  validate
 })(AddNewUserForm)

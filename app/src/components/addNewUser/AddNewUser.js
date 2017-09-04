@@ -6,10 +6,14 @@ import AddNewUserForm from './AddNewUserForm'
 import './AddNewUser.css'
 
 class AddNewUser extends Component {
+  constructor (props) {
+    super(props)
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
   handleSubmit (values) {
-    values.preventDefault()
-    console.log('handleSubmit: ', values.target)
-    this.props.createUserRequest()
+    this.props.createUserRequest(values)
   }
 
   render () {

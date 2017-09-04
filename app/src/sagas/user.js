@@ -12,10 +12,10 @@ import {
 } from '../reducers/users'
 import { BASE_URL } from '../constants/urlConstants'
 
-export function * addUser (user) {
+export function * addUser (action) {
   try {
-    yield call(request.post, `${BASE_URL}/customers`, user.data)
-    yield put(createUserSuccess())
+    const user = yield call(request.post, `${BASE_URL}/customers`, action.values)
+    yield put(createUserSuccess(user.data))
   } catch (error) {
     yield put(createUserFailed(error))
   }

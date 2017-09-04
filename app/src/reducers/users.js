@@ -12,13 +12,9 @@ export const TOGGLE_USER = 'USER/TOGGLE'
 
 const user = (state = {}, action) => {
   switch (action.type) {
-    // case 'ADD_USER':
-    //   return {
-    //     id: action.id,
-    //     firstName: action.firstName,
-    //     lastName: action.lastName,
-    //     completed: false
-    //   }
+    case CREATE_USER_SUCCEEDED: {
+      return action.user
+    }
     case TOGGLE_USER:
       if (state.id !== action.id) {
         return state
@@ -35,34 +31,27 @@ const user = (state = {}, action) => {
 
 const users = (state = [], action) => {
   switch (action.type) {
-    // case 'ADD_USER':
-    //   return [
-    //     ...state,
-    //     user(undefined, action)
-    //   ]
     case TOGGLE_USER:
       return state.map(t =>
         user(t, action)
       )
     case FETCH_USER_SUCCEEDED:
-      console.log('Action: ', action)
       return action.users.data
     case CREATE_USER_SUCCEEDED:
-      console.log('Action data: ', action.user.data)
-      console.log('State: ', state)
-      return state.push(action.data.data)
+      let newState = state.slice()
+      newState.push(user({}, action))
+      return newState
     default:
       return state
   }
 }
 
 // Action Creators
-
 export const fetchUsersRequest = () => ({type: FETCH_USER_REQUESTED})
 export const fetchUsersSuccess = (users) => ({type: FETCH_USER_SUCCEEDED, users})
 export const fetchUsersFailed = (error) => ({type: FETCH_USER_FAILED, error})
 
-export const createUserRequest = () => ({type: CREATE_USER_REQUESTED})
+export const createUserRequest = (values) => ({type: CREATE_USER_REQUESTED, values})
 export const createUserSuccess = (user) => ({type: CREATE_USER_SUCCEEDED, user})
 export const createUserFailed = (error) => ({type: CREATE_USER_FAILED, error})
 
