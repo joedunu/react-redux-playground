@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 
 import './AddNewUser.css'
+
+const onSubmitFail = (data) => {
+  console.log('onSubmitFail: ', data)
+}
 
 const validate = values => {
   const errors = {}
@@ -16,9 +20,9 @@ const validate = values => {
   } else if (values.lastName.length < 2) {
     errors.lastName = 'Must be 2 characters or more'
   }
-  if (!values.email) {
+  if (values.firstName && !values.email) {
     errors.email = 'Required'
-  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  } else if (values.firstName && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address'
   }
   if (!values.mobile) {
@@ -42,27 +46,31 @@ const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
   </div>
 )
 
-const AddNewUserForm = props => {
-  return (
-    <form className='container' onSubmit={props.handleSubmit}>
-      <div className='row'>
-        <Field name='firstName' component={renderField} type='text' label='First Name' />
-        <Field name='lastName' component={renderField} type='text' label='Last Name' />
-      </div>
-      <div className='row'>
-        <Field name='email' component={renderField} type='text' label='Email' />
-        <Field name='mobile' component={renderField} type='text' label='Mobile' />
-      </div>
-      <div className='row'>
-        <div className='col-6'>
-          <button className='btn btn-secondary'>Cancel</button>
+class AddNewUserForm extends Component {
+  render () {
+    return (
+      <form className='container' onSubmit={this.props.handleSubmit}>
+        {this.props.invalid ? JSON.stringify(this.props) : ''}
+        <div className='row'>
+          <Field name='firstName' component={renderField} type='text' label='First Name'/>
+          <Field name='lastName' component={renderField} type='text' label='Last Name'/>
         </div>
-        <div className='col-6'>
-          <button className='btn btn-primary' type='submit'>Add User</button>
+        <div className='row'>
+          <Field name='email' component={renderField} type='text' label='Email'/>
+          <Field name='mobile' component={renderField} type='text' label='Mobile'/>
         </div>
-      </div>
-    </form>
-  )
+        }
+        <div className='row'>
+          <div className='col-6'>
+            <button className='btn btn-secondary'>Cancel</button>
+          </div>
+          <div className='col-6'>
+            <button className='btn btn-primary' type='submit'>Add User</button>
+          </div>
+        </div>
+      </form>
+    )
+  }
 }
 
 AddNewUserForm.propTypes = {
@@ -71,5 +79,6 @@ AddNewUserForm.propTypes = {
 
 export default reduxForm({
   form: 'addNewUser',
-  validate
+  validate,
+  onSubmitFail
 })(AddNewUserForm)

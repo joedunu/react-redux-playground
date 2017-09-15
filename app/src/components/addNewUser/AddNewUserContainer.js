@@ -1,5 +1,7 @@
 'use strict'
 import { connect } from 'react-redux'
+import { formValueSelector } from 'redux-form'
+
 
 import { createUserRequest } from '../../reducers/users'
 import AddNewUser from './AddNewUser'
