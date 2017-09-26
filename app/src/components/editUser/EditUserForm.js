@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 
-import './AddNewUser.css'
+import './EditUser.css'
 
 const onSubmitFail = (data) => {
   console.log('onSubmitFail: ', data)
@@ -20,9 +20,9 @@ const validate = values => {
   } else if (values.lastName.length < 2) {
     errors.lastName = 'Must be 2 characters or more'
   }
-  if (values.firstName && !values.email) {
+  if (!values.email) {
     errors.email = 'Required'
-  } else if (values.firstName && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  } else if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address'
   }
   if (!values.mobile) {
@@ -43,18 +43,25 @@ const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
         <input {...input} placeholder={label} type={type} />
       </div>
     </div>
-    <div className='row'>
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+    <div className='row form-group'>
+      <div className='col-12 has-danger'>
+        {touched && ((error && <span className='form-control-feedback'>{error}</span>) || (warning &&
+          <span className='form-control-feedback'>{warning}</span>))}
+      </div>
     </div>
 
   </div>
 )
 
-class AddNewUserForm extends Component {
+class EditUserForm extends Component {
   render () {
     return (
       <form className='container' onSubmit={this.props.handleSubmit}>
-        {this.props.invalid ? JSON.stringify(this.props) : ''}
+        {this.props.invalid ?
+          <div className='alert alert-info'>
+            {JSON.stringify(this.props)}
+          </div>
+          : ''}
         <div className='row'>
           <Field name='firstName' component={renderField} type='text' label='First Name'/>
           <Field name='lastName' component={renderField} type='text' label='Last Name'/>
@@ -68,7 +75,7 @@ class AddNewUserForm extends Component {
             <button className='btn btn-secondary'>Cancel</button>
           </div>
           <div className='col-6'>
-            <button className='btn btn-primary' type='submit'>Add User</button>
+            <button className='btn btn-primary' type='submit'>Edit User</button>
           </div>
         </div>
       </form>
@@ -76,12 +83,12 @@ class AddNewUserForm extends Component {
   }
 }
 
-AddNewUserForm.propTypes = {
+EditUserForm.propTypes = {
   handleSubmit: PropTypes.func
 }
 
 export default reduxForm({
-  form: 'addNewUser',
+  form: 'editUser',
   validate,
   onSubmitFail
-})(AddNewUserForm)
+})(EditUserForm)

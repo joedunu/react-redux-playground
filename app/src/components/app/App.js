@@ -10,8 +10,9 @@ import PropTypes from 'prop-types'
 import Header from '../common/header/Header'
 import AddNewUserContainer from '../addNewUser/AddNewUserContainer'
 import VisibleUsersList from '../../containers/VisibleUsersList'
-import Footer from '../footer/Footer'
+import Footer from '../common/footer/Footer'
 import ReactModal from '../reactModal/ReactModal'
+import EditUserContainer from '../editUser/EditUserContainer'
 
 const history = createBrowserHistory()
 
@@ -22,10 +23,11 @@ class App extends Component {
       <Router history={history}>
         <div>
           <Header history={history} />
-          <AddNewUserContainer history={history} />
-          <VisibleUsersList />
-          <Footer />
+          <Route path='/add-user' component={AddNewUserContainer} />
+          <Route exact path='/' component={VisibleUsersList} />
           <Route path='/react-modal' component={ReactModal} />
+          <Route path='/edit-user' component={EditUserContainer} />
+          <Footer />
         </div>
       </Router>
     )

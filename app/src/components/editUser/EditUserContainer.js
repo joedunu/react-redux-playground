@@ -4,7 +4,7 @@ import { formValueSelector } from 'redux-form'
 import {omit} from 'lodash'
 
 import { createUserRequest } from '../../reducers/users'
-import AddNewUser from './AddNewUser'
+import AddNewUser from './EditUser'
 
 const selector = formValueSelector('addNewUser')
 
