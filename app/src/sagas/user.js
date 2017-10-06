@@ -5,28 +5,25 @@ import request from 'axios'
 import {
   FETCH_USER_REQUESTED,
   CREATE_USER_REQUESTED,
-  fetchUsersFailed,
-  fetchUsersSuccess,
-  createUserFailed,
-  createUserSuccess
+  actions as usersActions
 } from '../reducers/users'
 import { BASE_URL } from '../constants/urlConstants'
 
-export function * addUser (user) {
+export function * addUser (action) {
   try {
-    yield call(request.post, `${BASE_URL}/customers`, user.data)
-    yield put(createUserSuccess())
+    const user = yield call(request.post, `${BASE_URL}/customers`, action.values)
+    yield put(usersActions.createUserSuccess(user.data))
   } catch (error) {
-    yield put(createUserFailed(error))
+    yield put(usersActions.createUserFailed(error))
   }
 }
 
 export function * fetchUsers () {
   try {
     const data = yield call(request.get, `${BASE_URL}/customers`)
-    yield put(fetchUsersSuccess(data))
+    yield put(usersActions.fetchUsersSuccess(data))
   } catch (error) {
-    yield put(fetchUsersFailed(error))
+    yield put(usersActions.fetchUsersFailed(error))
   }
 }
 

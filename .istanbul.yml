@@ -10,13 +10,13 @@ instrumentation:
     preserve-comments: false
     complete-copy: false
     save-baseline: false
-    baseline-file: ./coverage/coverage-baseline.json
+    baseline-file: ./reports/coverage/coverage-baseline.json
     include-all-sources: false
     include-pid: false
     es-modules: true
 reporting:
-  print: summary
-  dir: ./coverage
+    print: summary
+    dir: ./reports/coverage
 check:
     global:
         statements: 0
