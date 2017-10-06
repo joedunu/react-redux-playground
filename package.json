@@ -9,7 +9,9 @@
   "scripts": {
     "start": "webpack-dev-server",
     "test": "NODE_ENV=test jest && istanbul check-coverage",
-    "lint": "standard --verbose | snazzy"
+    "lint": "standard --verbose | snazzy",
+    "coverage": "istanbul check-coverage",
+    "coveralls": "cat ./reports/coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",

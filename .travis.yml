@@ -4,4 +4,4 @@ node_js:
 cache:
   directories:
     - "node_modules"
-repo_token: m71SbfQQn7wBWHc2Lxpt7Y3medN5gKFJx
+after_success: 'npm run coveralls'
