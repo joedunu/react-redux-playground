@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { formValueSelector } from 'redux-form'
 import {omit} from 'lodash'
 
-import { createUserRequest } from '../../reducers/users'
+import { actions as usersActions } from '../../reducers/users'
 import AddNewUser from './EditUser'
 
 export const mapStateToProps = (state) => {
@@ -16,7 +16,7 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
   return {
     createUserRequest: (values) => {
-      dispatch(createUserRequest(values))
+      dispatch(usersActions.createUserRequest(values))
     }
   }
 }

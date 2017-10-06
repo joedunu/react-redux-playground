@@ -3,13 +3,12 @@ import { connect } from 'react-redux'
 import { formValueSelector } from 'redux-form'
 import {omit} from 'lodash'
 
-import { createUserRequest } from '../../reducers/users'
+import { actions as usersActions } from '../../reducers/users'
 import AddNewUser from './AddNewUser'
 
 const selector = formValueSelector('addNewUser')
 
 export const mapStateToProps = (state) => {
-  console.log('State', omit(state.users[23], ['id']))
   const {firstName, lastName, email, mobile} = selector(state, 'firstName', 'lastName', 'email', 'mobile')
   return {
     users: state,
@@ -25,7 +24,7 @@ export const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => {
   return {
     createUserRequest: (values) => {
-      dispatch(createUserRequest(values))
+      dispatch(usersActions.createUserRequest(values))
     }
   }
 }

@@ -8,6 +8,10 @@ export const CREATE_USER_REQUESTED = 'USER/CREATE/REQUESTED'
 export const CREATE_USER_SUCCEEDED = 'USER/CREATE/SUCCEEDED'
 export const CREATE_USER_FAILED = 'USER/CREATE/FAILED'
 
+export const EDIT_USER_REQUESTED = 'USER/EDIT/REQUESTED'
+export const EDIT_USER_SUCCEEDED = 'USER/EDIT/SUCCEEDED'
+export const EDIT_USER_FAILED = 'USER/EDIT/FAILED'
+
 export const TOGGLE_USER = 'USER/TOGGLE'
 
 const user = (state = {}, action) => {
@@ -47,12 +51,18 @@ const users = (state = [], action) => {
 }
 
 // Action Creators
-export const fetchUsersRequest = () => ({type: FETCH_USER_REQUESTED})
-export const fetchUsersSuccess = (users) => ({type: FETCH_USER_SUCCEEDED, users})
-export const fetchUsersFailed = (error) => ({type: FETCH_USER_FAILED, error})
+export const actions = {
+  fetchUsersRequest: () => ({type: FETCH_USER_REQUESTED}),
+  fetchUsersSuccess: (users) => ({type: FETCH_USER_SUCCEEDED, users}),
+  fetchUsersFailed: (error) => ({type: FETCH_USER_FAILED, error}),
 
-export const createUserRequest = (values) => ({type: CREATE_USER_REQUESTED, values})
-export const createUserSuccess = (user) => ({type: CREATE_USER_SUCCEEDED, user})
-export const createUserFailed = (error) => ({type: CREATE_USER_FAILED, error})
+  createUserRequest: (values) => ({type: CREATE_USER_REQUESTED, values}),
+  createUserSuccess: (user) => ({type: CREATE_USER_SUCCEEDED, user}),
+  createUserFailed: (error) => ({type: CREATE_USER_FAILED, error}),
+
+  editUserRequest: (id) => ({type: EDIT_USER_REQUESTED, id}),
+  editUserSuccess: (user) => ({type: EDIT_USER_SUCCEEDED, user}),
+  editUserFailed: (error) => ({type: EDIT_USER_FAILED, error})
+}
 
 export default users

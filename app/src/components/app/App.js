@@ -18,7 +18,6 @@ const history = createBrowserHistory()
 
 class App extends Component {
   render () {
-    // const {store} = this.props
     return (
       <Router history={history}>
         <div>
