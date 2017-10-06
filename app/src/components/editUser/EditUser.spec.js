@@ -1,18 +1,23 @@
 import React from 'react'
 import {shallow, mount} from 'enzyme'
 import {shallowToJson} from 'enzyme-to-json'
-import AddNewUser from './EditUser'
+import EditUser from './EditUser'
 
-describe.skip('User Registration Form', () => {
-  test('should pass snapshot test', () => {
-    const component = shallow(<AddNewUser />)
-    const tree = shallowToJson(component)
-    expect(tree).toMatchSnapshot()
+import configureMockStore from 'redux-mock-store'
+
+describe('User Registration Form', () => {
+  const mockStore = configureMockStore([])
+  let store
+  let combinedReducersState = {}
+
+  beforeEach(() => {
+    store = mockStore(combinedReducersState)
   })
 
-  test('should render without throwing an error', () => {
-    const component = mount(<AddNewUser />)
-    expect(component.contains([<span>First Name: </span>, <input className='first-name' />])).toEqual(true)
+  test('should pass snapshot test', () => {
+    const component = shallow(<EditUser store={store} />)
+    const tree = shallowToJson(component)
+    expect(tree).toMatchSnapshot()
   })
 
   test('should be selectable by class "userRegistrationForm"', () => {
@@ -21,12 +26,12 @@ describe.skip('User Registration Form', () => {
   })
 
   test('should mount in a full DOM', () => {
-    const component = mount(<AddNewUser />)
+    const component = shallow(<EditUser store={store} />)
     expect(component.find('div').length).toEqual(1)
   })
 
   test('should render to static HTML', () => {
-    const component = mount(<AddNewUser />)
-    expect(component.text()).toEqual('First Name: Last Name: Date of Birth: ')
+    const component = shallow(<EditUser store={store} />)
+    expect(component.text()).toEqual('<ReduxForm />')
   })
 })
