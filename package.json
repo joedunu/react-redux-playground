@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Example implementation of react-redux",
   "main": "index.js",
+  "engines" : { "node" : ">=6.9.2" },
   "scripts": {
     "start": "webpack-dev-server",
     "test": "NODE_ENV=test jest && istanbul check-coverage",

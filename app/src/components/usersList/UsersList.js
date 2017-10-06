@@ -11,16 +11,18 @@ class UsersList extends Component {
   render () {
     let {users, onUserClick} = this.props
     return (
-      <ul>
+      <div className='container'>
+        <ul>
 
-        {users.map(user =>
-          <User
-            key={user.id}
-            {...user}
-            onClick={() => onUserClick(user.id)}
-          />
-        )}
-      </ul>
+          {users.map(user =>
+            <User
+              key={user.id}
+              {...user}
+              onClick={() => onUserClick(user.id)}
+            />
+          )}
+        </ul>
+      </div>
     )
   }
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import AddNewUserForm from './AddNewUserForm'
+import AddNewUserForm from './EditUserForm'
 
-import './AddNewUser.css'
+import './EditUser.css'
 
 class AddNewUser extends Component {
   constructor (props) {
