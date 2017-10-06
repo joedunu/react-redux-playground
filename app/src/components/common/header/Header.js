@@ -9,13 +9,13 @@ const Header = () => (
       <div className='collapse navbar-collapse' id='navbarNav'>
         <ul className='navbar-nav mr-auto'>
           <li className='nav-item'>
-            <Link className='nav-item nav-link' to={'/'} activeClassName='active'>Home</Link>
+            <Link className='nav-item nav-link' to={'/'}>Home</Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-link' to={'/add-user'} activeClassName='active'>Add User</Link>
+            <Link className='nav-link' to={'/add-user'}>Add User</Link>
           </li>
           <li className='nav-item'>
-            <Link className='nav-item nav-link' to={'/edit-user/1'} activeClassName='active'>Edit User</Link>
+            <Link className='nav-item nav-link' to={'/edit-user/1'}>Edit User</Link>
           </li>
         </ul>
       </div>

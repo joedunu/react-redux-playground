@@ -40,7 +40,7 @@ const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
         <label htmlFor={input.name}>{label} </label>&nbsp;
       </div>
       <div className='col-8'>
-        <input {...input} placeholder={label} type={type} />
+        <input {...input} placeholder={label} type={type}/>
       </div>
     </div>
     <div className='row form-group'>
@@ -57,18 +57,17 @@ class EditUserForm extends Component {
   render () {
     return (
       <form className='container' onSubmit={this.props.handleSubmit}>
-        {this.props.invalid ?
-          <div className='alert alert-info'>
+        {this.props.invalid ? <div className='alert alert-info'>
             {JSON.stringify(this.props)}
           </div>
           : ''}
         <div className='row'>
-          <Field name='firstName' component={renderField} type='text' label='First Name'/>
-          <Field name='lastName' component={renderField} type='text' label='Last Name'/>
+          <Field name='firstName' component={renderField} type='text' label='First Name' />
+          <Field name='lastName' component={renderField} type='text' label='Last Name' />
         </div>
         <div className='row'>
-          <Field name='email' component={renderField} type='text' label='Email'/>
-          <Field name='mobile' component={renderField} type='text' label='Mobile'/>
+          <Field name='email' component={renderField} type='text' label='Email' />
+          <Field name='mobile' component={renderField} type='text' label='Mobile' />
         </div>
         <div className='row'>
           <div className='col-6'>
@@ -89,6 +88,7 @@ EditUserForm.propTypes = {
 
 export default reduxForm({
   form: 'editUser',
+  enableReinitialize: true,
   validate,
   onSubmitFail
 })(EditUserForm)

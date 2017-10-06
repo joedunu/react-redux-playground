@@ -83,5 +83,6 @@ AddNewUserForm.propTypes = {
 export default reduxForm({
   form: 'addNewUser',
   validate,
+  enableReinitialize: false,
   onSubmitFail
 })(AddNewUserForm)

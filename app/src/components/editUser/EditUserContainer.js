@@ -6,21 +6,12 @@ import {omit} from 'lodash'
 import { createUserRequest } from '../../reducers/users'
 import AddNewUser from './EditUser'
 
-const selector = formValueSelector('addNewUser')
-
 export const mapStateToProps = (state) => {
-  console.log('State', omit(state.users[23], ['id']))
-  const {firstName, lastName, email, mobile} = selector(state, 'firstName', 'lastName', 'email', 'mobile')
+  console.log('State', omit(state.users[0], ['id']))
   return {
-    users: state,
-    initialValues: omit(state.users[23], ['id']),
-    firstName,
-    lastName,
-    email,
-    mobile
+    initialValues: omit(state.users[0], ['id'])
   }
 }
-
 
 export const mapDispatchToProps = (dispatch) => {
   return {
