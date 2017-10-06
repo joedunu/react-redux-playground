@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Search snapshot test 1`] = `
+exports[`Header snapshot test 1`] = `
 <div>
   <nav
-    className="navbar navbar-light bg-faded"
+    className="navbar navbar-toggleable-md navbar-light bg-faded"
   >
     <a
       className="navbar-brand"
@@ -11,6 +11,48 @@ exports[`Search snapshot test 1`] = `
     >
       React Redux Example
     </a>
+    <div
+      className="collapse navbar-collapse"
+      id="navbarNav"
+    >
+      <ul
+        className="navbar-nav mr-auto"
+      >
+        <li
+          className="nav-item"
+        >
+          <Link
+            className="nav-item nav-link"
+            replace={false}
+            to="/"
+          >
+            Home
+          </Link>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <Link
+            className="nav-link"
+            replace={false}
+            to="/add-user"
+          >
+            Add User
+          </Link>
+        </li>
+        <li
+          className="nav-item"
+        >
+          <Link
+            className="nav-item nav-link"
+            replace={false}
+            to="/edit-user/1"
+          >
+            Edit User
+          </Link>
+        </li>
+      </ul>
+    </div>
   </nav>
 </div>
 `;
