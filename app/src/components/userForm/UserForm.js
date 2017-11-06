@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 
-import './EditUser.css'
+import './UserForm.css'
 
 const onSubmitFail = (data) => {
   console.log('onSubmitFail: ', data)
@@ -33,14 +33,14 @@ const validate = values => {
   return errors
 }
 
-const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
+const renderField = ({input, label, type, meta: {touched, error, warning}, value}) => (
   <div className='col-6'>
     <div className='row'>
       <div className='col-4'>
         <label htmlFor={input.name}>{label} </label>&nbsp;
       </div>
       <div className='col-8'>
-        <input {...input} placeholder={label} type={type}/>
+        <input value={value} {...input} placeholder={label} type={type}/>
       </div>
     </div>
     <div className='row form-group'>
@@ -53,36 +53,31 @@ const renderField = ({input, label, type, meta: {touched, error, warning}}) => (
   </div>
 )
 
-class EditUserForm extends Component {
-  render () {
-    return (
-      <form className='container' onSubmit={this.props.handleSubmit}>
-        {this.props.invalid ? <div className='alert alert-info'>
-            {JSON.stringify(this.props)}
-          </div>
-          : ''}
-        <div className='row'>
-          <Field name='firstName' component={renderField} type='text' label='First Name' />
-          <Field name='lastName' component={renderField} type='text' label='Last Name' />
+let UserForm = (props) => {
+  const {handleSubmit} = props
+  return (
+    <form className='container user-form' onSubmit={handleSubmit}>
+      <div className='row'>
+        <Field name='firstName' component={renderField} type='text' label='First Name' value={'test'} />
+        <Field name='lastName' component={renderField} type='text' label='Last Name' />
+      </div>
+      <div className='row'>
+        <Field name='email' component={renderField} type='text' label='Email' />
+        <Field name='mobile' component={renderField} type='text' label='Mobile' />
+      </div>
+      <div className='row'>
+        <div className='col-6'>
+          <button className='btn btn-secondary'>Cancel</button>
         </div>
-        <div className='row'>
-          <Field name='email' component={renderField} type='text' label='Email' />
-          <Field name='mobile' component={renderField} type='text' label='Mobile' />
+        <div className='col-6'>
+          <button className='btn btn-primary' type='submit'>Edit User</button>
         </div>
-        <div className='row'>
-          <div className='col-6'>
-            <button className='btn btn-secondary'>Cancel</button>
-          </div>
-          <div className='col-6'>
-            <button className='btn btn-primary' type='submit'>Edit User</button>
-          </div>
-        </div>
-      </form>
-    )
-  }
+      </div>
+    </form>
+  )
 }
 
-EditUserForm.propTypes = {
+UserForm.propTypes = {
   handleSubmit: PropTypes.func
 }
 
@@ -91,4 +86,4 @@ export default reduxForm({
   enableReinitialize: true,
   validate,
   onSubmitFail
-})(EditUserForm)
+})(UserForm)

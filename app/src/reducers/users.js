@@ -1,4 +1,5 @@
 'use strict'
+import {findIndex} from 'lodash'
 
 export const FETCH_USER_REQUESTED = 'USER/FETCH/REQUESTED'
 export const FETCH_USER_SUCCEEDED = 'USER/FETCH/SUCCEEDED'
@@ -45,6 +46,14 @@ const users = (state = [], action) => {
       let newState = state.slice()
       newState.push(user({}, action))
       return newState
+    case EDIT_USER_REQUESTED:
+      let editState = state.slice()
+      const userIndex = findIndex(editState, (user) => {
+        return user.id === action.values.id
+      })
+      editState[userIndex] = action.values
+      console.log('new state', editState)
+      return editState
     default:
       return state
   }
@@ -60,7 +69,7 @@ export const actions = {
   createUserSuccess: (user) => ({type: CREATE_USER_SUCCEEDED, user}),
   createUserFailed: (error) => ({type: CREATE_USER_FAILED, error}),
 
-  editUserRequest: (id) => ({type: EDIT_USER_REQUESTED, id}),
+  editUserRequest: (values) => ({type: EDIT_USER_REQUESTED, values}),
   editUserSuccess: (user) => ({type: EDIT_USER_SUCCEEDED, user}),
   editUserFailed: (error) => ({type: EDIT_USER_FAILED, error})
 }

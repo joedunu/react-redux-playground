@@ -125,6 +125,7 @@
     }
   },
   "babel": {
+    "ignore": "node_modules",
     "presets": [
       "react",
       [
