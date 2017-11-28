@@ -35,9 +35,9 @@ exports[`Header snapshot test 1`] = `
           <Link
             className="nav-link"
             replace={false}
-            to="/add-user"
+            to="/sign-up"
           >
-            Add User
+            SignUp
           </Link>
         </li>
         <li

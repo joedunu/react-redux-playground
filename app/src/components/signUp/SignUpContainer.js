@@ -4,7 +4,7 @@ import { formValueSelector } from 'redux-form'
 import {omit} from 'lodash'
 
 import { actions as usersActions } from '../../reducers/users'
-import AddNewUser from './AddNewUser'
+import SignUP from './SignUP'
 
 const selector = formValueSelector('addNewUser')
 
@@ -28,4 +28,4 @@ export const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddNewUser)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUP)

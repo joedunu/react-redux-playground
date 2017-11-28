@@ -70,7 +70,7 @@ let UserForm = (props) => {
           <button className='btn btn-secondary'>Cancel</button>
         </div>
         <div className='col-6'>
-          <button className='btn btn-primary' type='submit'>{enableEdit ? 'Edit' : 'Add'} User</button>
+          <button className='btn btn-primary' type='submit'>{enableEdit ? 'Edit User' : 'Sign Up'}</button>
         </div>
       </div>
     </form>

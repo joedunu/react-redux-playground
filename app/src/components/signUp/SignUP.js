@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import UserForm from '../userForm/UserForm'
 
-class AddNewUser extends Component {
+class SignUP extends Component {
   render () {
     return (
       <UserForm
@@ -13,8 +13,8 @@ class AddNewUser extends Component {
   }
 }
 
-AddNewUser.propTypes = {
+SignUP.propTypes = {
   createUserRequest: PropTypes.func
 }
 
-export default AddNewUser
+export default SignUP

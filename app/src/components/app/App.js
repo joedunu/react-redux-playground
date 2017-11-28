@@ -8,7 +8,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import PropTypes from 'prop-types'
 
 import Header from '../common/header/Header'
-import AddNewUserContainer from '../addNewUser/AddNewUserContainer'
+import SignUpContainer from '../signUp/SignUpContainer'
 import VisibleUsersList from '../../containers/VisibleUsersList'
 import Footer from '../common/footer/Footer'
 import ReactModal from '../reactModal/ReactModal'
@@ -22,7 +22,7 @@ class App extends Component {
       <Router history={history}>
         <div>
           <Header history={history} />
-          <Route path='/add-user' component={AddNewUserContainer} />
+          <Route path='/sign-up' component={SignUpContainer} />
           <Route exact path='/' component={VisibleUsersList} />
           <Route path='/react-modal' component={ReactModal} />
           <Route path='/edit-user' component={EditUserContainer} />
