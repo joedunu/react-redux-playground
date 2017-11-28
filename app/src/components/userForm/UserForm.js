@@ -54,7 +54,7 @@ const renderField = ({input, label, type, meta: {touched, error, warning}, value
 )
 
 let UserForm = (props) => {
-  const {handleSubmit} = props
+  const {handleSubmit, enableEdit} = props
   return (
     <form className='container user-form' onSubmit={handleSubmit}>
       <div className='row'>
@@ -70,7 +70,7 @@ let UserForm = (props) => {
           <button className='btn btn-secondary'>Cancel</button>
         </div>
         <div className='col-6'>
-          <button className='btn btn-primary' type='submit'>Edit User</button>
+          <button className='btn btn-primary' type='submit'>{enableEdit ? 'Edit' : 'Add'} User</button>
         </div>
       </div>
     </form>
@@ -78,7 +78,8 @@ let UserForm = (props) => {
 }
 
 UserForm.propTypes = {
-  handleSubmit: PropTypes.func
+  handleSubmit: PropTypes.func.isRequired,
+  enableEdit: PropTypes.bool
 }
 
 export default reduxForm({

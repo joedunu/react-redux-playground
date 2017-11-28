@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`User Registration Form should pass snapshot test 1`] = `
-<div
-  className="addNewUser"
->
+<div>
   <ReduxForm
-    onSubmit={[Function]}
+    enableEdit={true}
   />
 </div>
 `;

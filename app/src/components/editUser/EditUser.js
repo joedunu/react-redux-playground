@@ -11,6 +11,7 @@ class EditUser extends Component {
         <UserForm
           onSubmit={updateUserRequest}
           initialValues={initialValues}
+          enableEdit
         />
       </div>
     )
