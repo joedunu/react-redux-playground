@@ -1,58 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header snapshot test 1`] = `
-<div>
-  <nav
-    className="navbar navbar-toggleable-md navbar-light bg-faded"
-  >
-    <a
-      className="navbar-brand"
-      href="#"
-    >
-      React Redux Example
-    </a>
-    <div
-      className="collapse navbar-collapse"
-      id="navbarNav"
-    >
-      <ul
-        className="navbar-nav mr-auto"
-      >
-        <li
-          className="nav-item"
-        >
-          <Link
-            className="nav-item nav-link"
-            replace={false}
-            to="/"
-          >
-            Home
-          </Link>
-        </li>
-        <li
-          className="nav-item"
-        >
-          <Link
-            className="nav-link"
-            replace={false}
-            to="/sign-up"
-          >
-            SignUp
-          </Link>
-        </li>
-        <li
-          className="nav-item"
-        >
-          <Link
-            className="nav-item nav-link"
-            replace={false}
-            to="/edit-user/1"
-          >
-            Edit User
-          </Link>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</div>
+<Header
+  classes={
+    Object {
+      "flex": "Header-flex-2",
+      "menuButton": "Header-menuButton-3",
+      "root": "Header-root-1",
+    }
+  }
+/>
 `;
