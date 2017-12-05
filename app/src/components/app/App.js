@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 
 import Header from '../common/header/Header'
 import SignUpContainer from '../signUp/SignUpContainer'
-import VisibleUsersList from '../../containers/VisibleUsersList'
+import UsersListContainer from '../usersList/UsersListContainer'
 import Footer from '../common/footer/Footer'
 import ReactModal from '../reactModal/ReactModal'
 import EditUserContainer from '../editUser/EditUserContainer'
@@ -23,7 +23,7 @@ class App extends Component {
         <div>
           <Header history={history} />
           <Route path='/sign-up' component={SignUpContainer} />
-          <Route exact path='/' component={VisibleUsersList} />
+          <Route exact path='/' component={UsersListContainer} />
           <Route path='/react-modal' component={ReactModal} />
           <Route path='/edit-user' component={EditUserContainer} />
           <Footer />
