@@ -1,34 +1,26 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import AddNewUserForm from './EditUserForm'
+import UserForm from '../userForm/UserForm'
 
-import './EditUser.css'
-
-class AddNewUser extends Component {
-  constructor (props) {
-    super(props)
-
-    this.handleSubmit = this.handleSubmit.bind(this)
-  }
-
-  handleSubmit (values) {
-    this.props.createUserRequest(values)
-  }
-
+class EditUser extends Component {
   render () {
+    const {updateUserRequest, initialValues} = this.props
     return (
-      <div className='addNewUser'>
-        <AddNewUserForm
-          onSubmit={this.handleSubmit}
+      <div>
+        <UserForm
+          onSubmit={updateUserRequest}
+          initialValues={initialValues}
+          enableEdit
         />
       </div>
     )
   }
 }
 
-AddNewUser.propTypes = {
-  createUserRequest: PropTypes.func
+EditUser.propTypes = {
+  updateUserRequest: PropTypes.func,
+  initialValues: PropTypes.object
 }
 
-export default AddNewUser
+export default EditUser

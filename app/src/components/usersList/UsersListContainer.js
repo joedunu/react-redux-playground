@@ -1,10 +1,10 @@
 'use strict'
 
 import { connect } from 'react-redux'
-import UsersList from '../components/usersList/UsersList'
+import UsersList from './UsersList'
 
-import { actions as usersActions } from '../reducers/users'
-import { fetchAccountRequest } from '../reducers/account'
+import { actions as usersActions } from '../../reducers/users'
+import { fetchAccountRequest } from '../../reducers/account'
 
 const getVisibleUsers = (users, filter) => {
   switch (filter) {
@@ -37,9 +37,9 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-const VisibleUsersList = connect(
+const UsersListContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(UsersList)
 
-export default VisibleUsersList
+export default UsersListContainer

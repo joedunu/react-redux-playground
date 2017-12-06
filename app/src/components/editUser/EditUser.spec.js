@@ -1,9 +1,9 @@
 import React from 'react'
 import {shallow, mount} from 'enzyme'
 import {shallowToJson} from 'enzyme-to-json'
-import EditUser from './EditUser'
-
 import configureMockStore from 'redux-mock-store'
+
+import EditUser from './EditUser'
 
 describe('User Registration Form', () => {
   const mockStore = configureMockStore([])
