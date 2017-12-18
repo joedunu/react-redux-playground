@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
+import Paper from 'material-ui/Paper'
 
-import './UserForm.css'
+import styles from './UserForm.css'
 
 const onSubmitFail = (data) => {
   console.log('onSubmitFail: ', data)
@@ -56,24 +57,26 @@ const renderField = ({input, label, type, meta: {touched, error, warning}, value
 let UserForm = (props) => {
   const {handleSubmit, enableEdit} = props
   return (
-    <form className='container user-form' onSubmit={handleSubmit}>
-      <div className='row'>
-        <Field name='firstName' component={renderField} type='text' label='First Name' value={'test'} />
-        <Field name='lastName' component={renderField} type='text' label='Last Name' />
-      </div>
-      <div className='row'>
-        <Field name='email' component={renderField} type='text' label='Email' />
-        <Field name='mobile' component={renderField} type='text' label='Mobile' />
-      </div>
-      <div className='row'>
-        <div className='col-6'>
-          <button className='btn btn-secondary'>Cancel</button>
+    <Paper elevattion={4} className={styles['user-form']}>
+      <form onSubmit={handleSubmit}>
+        <div className='row'>
+          <Field name='firstName' component={renderField} type='text' label='First Name' value={'test'} />
+          <Field name='lastName' component={renderField} type='text' label='Last Name' />
         </div>
-        <div className='col-6'>
-          <button className='btn btn-primary' type='submit'>{enableEdit ? 'Edit User' : 'Sign Up'}</button>
+        <div className='row'>
+          <Field name='email' component={renderField} type='text' label='Email' />
+          <Field name='mobile' component={renderField} type='text' label='Mobile' />
         </div>
-      </div>
-    </form>
+        <div className='row'>
+          <div className='col-6'>
+            <button className='btn btn-secondary'>Cancel</button>
+          </div>
+          <div className='col-6'>
+            <button className='btn btn-primary' type='submit'>{enableEdit ? 'Edit User' : 'Sign Up'}</button>
+          </div>
+        </div>
+      </form>
+    </Paper>
   )
 }
 

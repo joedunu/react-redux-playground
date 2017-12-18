@@ -35,7 +35,7 @@ const Header = (props) => {
           <MenuIcon />
         </IconButton>
         <Typography type='title' color='inherit' className={classes.flex}>
-          React Redux Example
+          <Link to={'/'}>React Redux Example</Link>
         </Typography>
         <Button color='contrast'>Edit Profile</Button>
         <Button color='contrast'>Login</Button>

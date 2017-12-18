@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Paper from 'material-ui/Paper'
 
 import User from '../user/User'
+import styles from './UsersList.css'
 
 class UsersList extends Component {
   componentDidMount () {
@@ -13,8 +14,8 @@ class UsersList extends Component {
   render () {
     let {users, onUserClick} = this.props
     return (
-      <div className=''>
-        <Paper elevation={4}>
+      <div className={styles['users-list']}>
+        <Paper elevation={4} className={styles['users-list', 'page']}>
           <ul>
             {users.map(user =>
               <User
