@@ -8,6 +8,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
+    "build": "webpack --config ./webpack.config.js",
     "test": "NODE_ENV=test jest && istanbul check-coverage",
     "lint": "standard --verbose | snazzy",
     "coverage": "istanbul check-coverage",
@@ -59,6 +60,8 @@
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.17",
+    "copy-webpack-plugin": "^4.2.3",
     "coveralls": "^3.0.0",
     "css-loader": "^0.28.0",
     "enzyme": "^2.8.2",
