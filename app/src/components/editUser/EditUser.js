@@ -5,7 +5,7 @@ import UserForm from '../userForm/UserForm'
 
 class EditUser extends Component {
   render () {
-    const {updateUserRequest, initialValues} = this.props
+    const {updateUserRequest, initialValues, goTo} = this.props
     return (
       <div>
         <UserForm
@@ -13,6 +13,7 @@ class EditUser extends Component {
           initialValues={initialValues}
           enableEdit
           title={`Editing user: ${initialValues.id} - ${initialValues.firstName} ${initialValues.lastName}`}
+          goTo={goTo}
         />
       </div>
     )
@@ -21,7 +22,8 @@ class EditUser extends Component {
 
 EditUser.propTypes = {
   updateUserRequest: PropTypes.func,
-  initialValues: PropTypes.object
+  initialValues: PropTypes.object,
+  goTo: PropTypes.func.isRequired
 }
 
 export default EditUser

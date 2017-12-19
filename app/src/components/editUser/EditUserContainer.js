@@ -4,6 +4,7 @@ import {findIndex} from 'lodash'
 
 import { actions as usersActions } from '../../reducers/users'
 import EditUser from './EditUser'
+import { push } from 'react-router-redux'
 
 export const mapStateToProps = (state) => {
   const editingUserIndex = findIndex(state.users, (user) => {
@@ -19,6 +20,9 @@ export const mapDispatchToProps = (dispatch) => {
   return {
     updateUserRequest: (values) => {
       dispatch(usersActions.editUserRequest(values))
+    },
+    goTo: (location) => {
+      dispatch(push(location))
     }
   }
 }

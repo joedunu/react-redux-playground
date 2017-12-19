@@ -7,7 +7,7 @@ import {
   FETCH_USER_REQUESTED,
   CREATE_USER_REQUESTED,
   EDIT_USER_REQUESTED,
-  actions as usersActions
+  actions as usersActions, DELETE_USER_REQUESTED
 } from '../reducers/users'
 import { BASE_URL } from '../constants/urlConstants'
 
@@ -30,6 +30,16 @@ export function * editUser (action) {
   }
 }
 
+export function * deleteUser (action) {
+  try {
+    const user = yield call(request.delete, `${BASE_URL}/customers/${action.id}`)
+    yield put(usersActions.deleteUserSuccess(user.data))
+    yield put(push('/'))
+  } catch (error) {
+    yield put(usersActions.deleteUserFailed(error))
+  }
+}
+
 export function * fetchUsers () {
   try {
     const data = yield call(request.get, `${BASE_URL}/customers`)
@@ -49,4 +59,8 @@ export function * watchCreateUser () {
 
 export function * watchEditUser () {
   yield takeEvery(EDIT_USER_REQUESTED, editUser)
+}
+
+export function * watchDeleteUser () {
+  yield takeEvery(DELETE_USER_REQUESTED, deleteUser)
 }

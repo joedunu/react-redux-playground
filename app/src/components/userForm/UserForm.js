@@ -39,7 +39,7 @@ const validate = values => {
 }
 
 let UserForm = (props) => {
-  const {handleSubmit, enableEdit, title, classes} = props
+  const {handleSubmit, enableEdit, title, classes, deleteUser, goTo} = props
   return (
     <Paper elevattion={4} className={styles['user-form']}>
       <Typography type='display1' gutterBottom>
@@ -74,11 +74,11 @@ let UserForm = (props) => {
         </div>
         <div className='row'>
           <div className='col-6'>
-            <Button className=''>Cancel</Button>
+            <Button className='' onClick={() => goTo('/')}>Cancel</Button>
           </div>
           <div className='col-6'>
             <Button raised color='primary' className=''>{enableEdit ? 'Save Update' : 'Sign Up'}</Button>
-            {enableEdit ? <Button raised color='accent'>Delete&nbsp;<Delete /></Button> : ''}
+            {enableEdit ? <Button raised color='accent' onClick={deleteUser}>Delete&nbsp;<Delete /></Button> : ''}
           </div>
         </div>
       </form>
@@ -89,7 +89,10 @@ let UserForm = (props) => {
 UserForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   enableEdit: PropTypes.bool,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  deleteUser: PropTypes.func.isRequired,
+  classes: PropTypes.object,
+  goTo: PropTypes.func.isRequired
 }
 
 export default reduxForm({

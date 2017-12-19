@@ -9,13 +9,15 @@ class SignUP extends Component {
       <UserForm
         onSubmit={this.props.createUserRequest}
         title='Sign Up'
+        goTo={this.props.goTo}
       />
     )
   }
 }
 
 SignUP.propTypes = {
-  createUserRequest: PropTypes.func
+  createUserRequest: PropTypes.func,
+  goTo: PropTypes.func.isRequired
 }
 
 export default SignUP

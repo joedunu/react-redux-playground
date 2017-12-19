@@ -23,6 +23,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     fetchAccounts: () => {
       dispatch(fetchAccountRequest())
+    },
+    onDelete: (id) => {
+      dispatch(usersActions.deleteUserRequest(id))
     }
   }
 }

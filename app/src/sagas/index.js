@@ -1,6 +1,6 @@
 'use strict'
 
-import {watchCreateUser, watchFetchUsers, watchEditUser} from './user'
+import {watchCreateUser, watchFetchUsers, watchEditUser, watchDeleteUser} from './user'
 import {watchSetEditUser} from './appSagas'
 import {watchFetchAccount} from './account'
 
@@ -11,6 +11,7 @@ export default function * rootSaga () {
     watchCreateUser(),
     watchFetchAccount(),
     watchEditUser(),
-    watchSetEditUser()
+    watchSetEditUser(),
+    watchDeleteUser()
   ]
 }

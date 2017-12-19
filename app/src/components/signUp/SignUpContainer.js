@@ -1,6 +1,7 @@
 'use strict'
 import { connect } from 'react-redux'
 import { formValueSelector } from 'redux-form'
+import { push } from 'react-router-redux'
 import {omit} from 'lodash'
 
 import { actions as usersActions } from '../../reducers/users'
@@ -24,6 +25,9 @@ export const mapDispatchToProps = (dispatch) => {
   return {
     createUserRequest: (values) => {
       dispatch(usersActions.createUserRequest(values))
+    },
+    goTo: (location) => {
+      dispatch(push(location))
     }
   }
 }
