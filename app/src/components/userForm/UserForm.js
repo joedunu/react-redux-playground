@@ -4,6 +4,7 @@ import { Field, reduxForm } from 'redux-form'
 import Paper from 'material-ui/Paper'
 
 import styles from './UserForm.css'
+import ReduxTextField from '../common/ReduxTextField/ReduxTextField'
 
 const onSubmitFail = (data) => {
   console.log('onSubmitFail: ', data)
@@ -12,47 +13,27 @@ const onSubmitFail = (data) => {
 const validate = values => {
   const errors = {}
   if (!values.firstName) {
-    errors.firstName = 'Required'
+    errors.firstName = 'First name is required'
   } else if (values.firstName.length < 2) {
     errors.firstName = 'Must be 2 characters or more'
   }
   if (!values.lastName) {
-    errors.lastName = 'Required'
+    errors.lastName = 'Last name is required'
   } else if (values.lastName.length < 2) {
     errors.lastName = 'Must be 2 characters or more'
   }
   if (!values.email) {
-    errors.email = 'Required'
+    errors.email = 'Email is required'
   } else if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address'
   }
   if (!values.mobile) {
-    errors.mobile = 'Required'
+    errors.mobile = 'Mobile number is required'
   } else if (isNaN(Number(values.mobile))) {
     errors.mobile = 'Must be a number'
   }
   return errors
 }
-
-const renderField = ({input, label, type, meta: {touched, error, warning}, value}) => (
-  <div className='col-6'>
-    <div className='row'>
-      <div className='col-4'>
-        <label htmlFor={input.name}>{label} </label>&nbsp;
-      </div>
-      <div className='col-8'>
-        <input value={value} {...input} placeholder={label} type={type}/>
-      </div>
-    </div>
-    <div className='row form-group'>
-      <div className='col-12 has-danger'>
-        {touched && ((error && <span className='form-control-feedback'>{error}</span>) || (warning &&
-          <span className='form-control-feedback'>{warning}</span>))}
-      </div>
-    </div>
-
-  </div>
-)
 
 let UserForm = (props) => {
   const {handleSubmit, enableEdit} = props
@@ -60,12 +41,30 @@ let UserForm = (props) => {
     <Paper elevattion={4} className={styles['user-form']}>
       <form onSubmit={handleSubmit}>
         <div className='row'>
-          <Field name='firstName' component={renderField} type='text' label='First Name' value={'test'} />
-          <Field name='lastName' component={renderField} type='text' label='Last Name' />
+          <div className='col-4'>
+            <Field
+              name='firstName'
+              component={ReduxTextField}
+              label='First Name'
+            />
+          </div>
+          <div className='col-2'>&nbsp;</div>
+          <div className='col-4'>
+            <Field name='lastName' component={ReduxTextField} type='text' label='Last Name'/>
+          </div>
         </div>
         <div className='row'>
-          <Field name='email' component={renderField} type='text' label='Email' />
-          <Field name='mobile' component={renderField} type='text' label='Mobile' />
+          <div className='col-4'>
+            <Field name='email' component={ReduxTextField} type='text' label='Email'/>
+          </div>
+          <div className='col-2'>&nbsp;</div>
+
+          <div className='col-4'>
+            <Field name='mobile' component={ReduxTextField} type='text' label='Mobile'/>
+          </div>
+        </div>
+        <div className='row'>
+          <div className='col-12'>&nbsp;</div>
         </div>
         <div className='row'>
           <div className='col-6'>
@@ -87,7 +86,7 @@ UserForm.propTypes = {
 
 export default reduxForm({
   form: 'editUser',
-  enableReinitialize: true,
   validate,
+  enableReinitialize: true,
   onSubmitFail
 })(UserForm)
