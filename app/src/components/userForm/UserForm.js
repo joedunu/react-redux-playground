@@ -2,6 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
 import Paper from 'material-ui/Paper'
+import Typography from 'material-ui/Typography'
+import Button from 'material-ui/Button'
+import Delete from 'material-ui-icons/Delete'
 
 import styles from './UserForm.css'
 import ReduxTextField from '../common/ReduxTextField/ReduxTextField'
@@ -36,9 +39,12 @@ const validate = values => {
 }
 
 let UserForm = (props) => {
-  const {handleSubmit, enableEdit} = props
+  const {handleSubmit, enableEdit, title, classes} = props
   return (
     <Paper elevattion={4} className={styles['user-form']}>
+      <Typography type='display1' gutterBottom>
+        {title}
+      </Typography>
       <form onSubmit={handleSubmit}>
         <div className='row'>
           <div className='col-4'>
@@ -68,10 +74,11 @@ let UserForm = (props) => {
         </div>
         <div className='row'>
           <div className='col-6'>
-            <button className='btn btn-secondary'>Cancel</button>
+            <Button className=''>Cancel</Button>
           </div>
           <div className='col-6'>
-            <button className='btn btn-primary' type='submit'>{enableEdit ? 'Edit User' : 'Sign Up'}</button>
+            <Button raised color='primary' className=''>{enableEdit ? 'Save Update' : 'Sign Up'}</Button>
+            {enableEdit ? <Button raised color='accent'>Delete&nbsp;<Delete /></Button> : ''}
           </div>
         </div>
       </form>
@@ -81,7 +88,8 @@ let UserForm = (props) => {
 
 UserForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  enableEdit: PropTypes.bool
+  enableEdit: PropTypes.bool,
+  title: PropTypes.string.isRequired
 }
 
 export default reduxForm({

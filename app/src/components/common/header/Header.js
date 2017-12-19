@@ -37,7 +37,6 @@ const Header = (props) => {
         <Typography type='title' color='inherit' className={classes.flex}>
           <a onClick={() => goTo('/')}>React Redux Example</a>
         </Typography>
-        <Button color='contrast' onClick={() => goTo('/edit-user')}>Edit Profile</Button>
         <Button color='contrast' onClick={() => goTo('/login')}>Login</Button>
         <Button color='contrast' onClick={() => goTo('/sign-up')}>SignUp</Button>
       </Toolbar>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Paper from 'material-ui/Paper'
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
+import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 
 import styles from './UsersList.css'
@@ -28,6 +29,9 @@ class UsersList extends Component {
     return (
       <div className={styles['users-list']}>
         <Paper elevation={4} className={styles['users-list', 'page']}>
+          <Typography type='display1' gutterBottom>
+            Users list
+          </Typography>
           <Table className={classes.table}>
             <TableHead>
               <TableRow>
@@ -35,7 +39,7 @@ class UsersList extends Component {
                 <TableCell >First Name</TableCell>
                 <TableCell >Last Name</TableCell>
                 <TableCell >Email</TableCell>
-                <TableCell numeric>Protein (g)</TableCell>
+                <TableCell numeric>Mobile number</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

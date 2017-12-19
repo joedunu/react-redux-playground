@@ -12,6 +12,7 @@ class EditUser extends Component {
           onSubmit={updateUserRequest}
           initialValues={initialValues}
           enableEdit
+          title={`Editing user: ${initialValues.id} - ${initialValues.firstName} ${initialValues.lastName}`}
         />
       </div>
     )

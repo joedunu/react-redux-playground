@@ -8,6 +8,7 @@ class SignUP extends Component {
     return (
       <UserForm
         onSubmit={this.props.createUserRequest}
+        title='Sign Up'
       />
     )
   }
