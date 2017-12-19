@@ -1,7 +1,8 @@
 'use strict'
 import { put, call, takeEvery } from 'redux-saga/effects'
 import request from 'axios'
-
+import { omit } from 'lodash'
+import { push } from 'react-router-redux'
 import {
   FETCH_USER_REQUESTED,
   CREATE_USER_REQUESTED,
@@ -21,8 +22,9 @@ export function * addUser (action) {
 
 export function * editUser (action) {
   try {
-    const user = yield call(request.put, `${BASE_URL}/customers/${action.values.id}`, action.values)
+    const user = yield call(request.put, `${BASE_URL}/customers/${action.values.id}`, omit(action.values, ['type']))
     yield put(usersActions.editUserSuccess(user.data))
+    yield put(push('/'))
   } catch (error) {
     yield put(usersActions.editUserFailed(error))
   }

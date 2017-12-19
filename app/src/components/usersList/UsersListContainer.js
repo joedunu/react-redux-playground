@@ -5,6 +5,7 @@ import UsersList from './UsersList'
 
 import { actions as usersActions } from '../../reducers/users'
 import { fetchAccountRequest } from '../../reducers/account'
+import {setEditingUser} from '../../reducers/appReducer'
 
 const mapStateToProps = ({users}) => {
   return {
@@ -15,7 +16,7 @@ const mapStateToProps = ({users}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onUserClick: (id) => {
-      dispatch(usersActions.editUserRequest(id))
+      dispatch(setEditingUser(id))
     },
     fetchAllUsers: () => {
       dispatch(usersActions.fetchUsersRequest())

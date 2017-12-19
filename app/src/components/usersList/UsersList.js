@@ -16,6 +16,7 @@ class UsersList extends Component {
     return (
       <div className={styles['users-list']}>
         <Paper elevation={4} className={styles['users-list', 'page']}>
+          First Name Last Name Email Mobile
           <ul>
             {users.map(user =>
               <User

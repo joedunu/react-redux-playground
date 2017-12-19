@@ -9,7 +9,7 @@ const ReduxTextField = ({
                         }) => (
   <TextField
     label={label}
-    error={touched && error}
+    error={touched && !!error}
     helperText={touched && error}
     {...input}
     multiline

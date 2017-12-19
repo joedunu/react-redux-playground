@@ -4,8 +4,10 @@ import { routerReducer } from 'react-router-redux'
 
 import users from './users'
 import account from './account'
+import appReducer from './appReducer'
 
 const rootReducer = combineReducers({
+  appDetails: appReducer,
   account,
   users,
   form: formReducer,
