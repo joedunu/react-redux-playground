@@ -6,20 +6,9 @@ import UsersList from './UsersList'
 import { actions as usersActions } from '../../reducers/users'
 import { fetchAccountRequest } from '../../reducers/account'
 
-const getVisibleUsers = (users, filter) => {
-  switch (filter) {
-    case 'SHOW_ALL':
-      return users
-    case 'SHOW_COMPLETED':
-      return users.filter(t => t.completed)
-    case 'SHOW_ACTIVE':
-      return users.filter(t => !t.completed)
-  }
-}
-
-const mapStateToProps = (state) => {
+const mapStateToProps = ({users}) => {
   return {
-    users: getVisibleUsers(state.users, state.visibilityFilter)
+    users
   }
 }
 
