@@ -1,9 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Paper from 'material-ui/Paper'
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
+import { withStyles } from 'material-ui/styles'
 
-import User from '../user/User'
 import styles from './UsersList.css'
+
+const tableStyles = theme => ({
+  root: {
+    width: '100%',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto'
+  },
+  table: {
+    minWidth: 700
+  }
+})
 
 class UsersList extends Component {
   componentDidMount () {
@@ -12,20 +24,34 @@ class UsersList extends Component {
   }
 
   render () {
-    let {users, onUserClick} = this.props
+    let {users, onUserClick, classes} = this.props
     return (
       <div className={styles['users-list']}>
         <Paper elevation={4} className={styles['users-list', 'page']}>
-          First Name Last Name Email Mobile
-          <ul>
-            {users.map(user =>
-              <User
-                key={user.id}
-                {...user}
-                onClick={() => onUserClick(user.id)}
-              />
-            )}
-          </ul>
+          <Table className={classes.table}>
+            <TableHead>
+              <TableRow>
+                <TableCell numeric>User Id</TableCell>
+                <TableCell >First Name</TableCell>
+                <TableCell >Last Name</TableCell>
+                <TableCell >Email</TableCell>
+                <TableCell numeric>Protein (g)</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {users.map(user => {
+                return (
+                  <TableRow key={user.id} onClick={() => onUserClick(user.id)}>
+                    <TableCell numeric>{user.id}</TableCell>
+                    <TableCell>{user.firstName}</TableCell>
+                    <TableCell>{user.lastName}</TableCell>
+                    <TableCell>{user.email}</TableCell>
+                    <TableCell numeric>{user.mobile}</TableCell>
+                  </TableRow>
+                )
+              })}
+            </TableBody>
+          </Table>
         </Paper>
       </div>
     )
@@ -43,4 +69,4 @@ UsersList.propTypes = {
   fetchAccounts: PropTypes.func.isRequired
 }
 
-export default UsersList
+export default withStyles(tableStyles)(UsersList)
