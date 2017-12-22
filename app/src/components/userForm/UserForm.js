@@ -77,7 +77,7 @@ let UserForm = (props) => {
             <Button className='' onClick={() => goTo('/')}>Cancel</Button>
           </div>
           <div className='col-6'>
-            <Button raised color='primary' className=''>{enableEdit ? 'Save Update' : 'Sign Up'}</Button>
+            <Button raised color='primary' className='' type='submit'>{enableEdit ? 'Save Update' : 'Sign Up'}</Button>
             {enableEdit ? <Button raised color='accent' onClick={deleteUser}>Delete&nbsp;<Delete /></Button> : ''}
           </div>
         </div>
@@ -87,10 +87,10 @@ let UserForm = (props) => {
 }
 
 UserForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func,
   enableEdit: PropTypes.bool,
   title: PropTypes.string.isRequired,
-  deleteUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func,
   classes: PropTypes.object,
   goTo: PropTypes.func.isRequired
 }
