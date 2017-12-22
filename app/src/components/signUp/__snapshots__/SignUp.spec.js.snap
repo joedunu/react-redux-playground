@@ -1,3 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`User Registration Form should pass snapshot test 1`] = `<ReduxForm />`;
+exports[`User Registration Form should pass snapshot test 1`] = `
+<ReduxForm
+  goTo={[Function]}
+  title="Sign Up"
+/>
+`;

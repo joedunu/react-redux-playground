@@ -4,6 +4,16 @@ exports[`User Registration Form should pass snapshot test 1`] = `
 <div>
   <ReduxForm
     enableEdit={true}
+    goTo={[Function]}
+    initialValues={
+      Object {
+        "firstName": "Bob",
+        "id": 0,
+        "lastName": "John",
+      }
+    }
+    onSubmit={[Function]}
+    title="Editing user: 0 - Bob John"
   />
 </div>
 `;

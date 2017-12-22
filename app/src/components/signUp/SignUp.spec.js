@@ -17,7 +17,10 @@ describe('User Registration Form', () => {
   })
 
   test('should pass snapshot test', () => {
-    const component = shallow(<SignUP store={store} />)
+    const component = shallow(<SignUP
+      store={store}
+      goTo={jest.fn()}
+    />)
     const tree = shallowToJson(component)
     expect(tree).toMatchSnapshot()
   })
