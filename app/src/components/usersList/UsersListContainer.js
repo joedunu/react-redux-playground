@@ -5,34 +5,27 @@ import UsersList from './UsersList'
 
 import { actions as usersActions } from '../../reducers/users'
 import { fetchAccountRequest } from '../../reducers/account'
+import {setEditingUser} from '../../reducers/appReducer'
 
-const getVisibleUsers = (users, filter) => {
-  switch (filter) {
-    case 'SHOW_ALL':
-      return users
-    case 'SHOW_COMPLETED':
-      return users.filter(t => t.completed)
-    case 'SHOW_ACTIVE':
-      return users.filter(t => !t.completed)
-  }
-}
-
-const mapStateToProps = (state) => {
+const mapStateToProps = ({users}) => {
   return {
-    users: getVisibleUsers(state.users, state.visibilityFilter)
+    users
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onUserClick: (id) => {
-      dispatch(usersActions.editUserRequest(id))
+      dispatch(setEditingUser(id))
     },
     fetchAllUsers: () => {
       dispatch(usersActions.fetchUsersRequest())
     },
     fetchAccounts: () => {
       dispatch(fetchAccountRequest())
+    },
+    onDelete: (id) => {
+      dispatch(usersActions.deleteUserRequest(id))
     }
   }
 }

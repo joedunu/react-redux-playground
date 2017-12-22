@@ -1,0 +1,20 @@
+'use strict'
+import { put, call, takeEvery } from 'redux-saga/effects'
+import request from 'axios'
+import { push } from 'react-router-redux'
+import {
+  SET_EDIT_USER
+} from '../reducers/appReducer'
+
+export function * setEditingUser (action) {
+  try {
+    const data = yield call(request.get, `http://localhost:3000/customers/${action.id}`)
+    yield put(push('/edit-user'))
+  } catch (error) {
+    // yield put((error))
+  }
+}
+
+export function * watchSetEditUser () {
+  yield takeEvery(SET_EDIT_USER, setEditingUser)
+}

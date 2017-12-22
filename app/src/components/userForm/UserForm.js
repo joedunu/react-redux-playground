@@ -1,8 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
+import Paper from 'material-ui/Paper'
+import Typography from 'material-ui/Typography'
+import Button from 'material-ui/Button'
+import Delete from 'material-ui-icons/Delete'
 
-import './UserForm.css'
+import styles from './UserForm.css'
+import ReduxTextField from '../common/ReduxTextField/ReduxTextField'
 
 const onSubmitFail = (data) => {
   console.log('onSubmitFail: ', data)
@@ -11,80 +16,88 @@ const onSubmitFail = (data) => {
 const validate = values => {
   const errors = {}
   if (!values.firstName) {
-    errors.firstName = 'Required'
+    errors.firstName = 'First name is required'
   } else if (values.firstName.length < 2) {
     errors.firstName = 'Must be 2 characters or more'
   }
   if (!values.lastName) {
-    errors.lastName = 'Required'
+    errors.lastName = 'Last name is required'
   } else if (values.lastName.length < 2) {
     errors.lastName = 'Must be 2 characters or more'
   }
   if (!values.email) {
-    errors.email = 'Required'
+    errors.email = 'Email is required'
   } else if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
     errors.email = 'Invalid email address'
   }
   if (!values.mobile) {
-    errors.mobile = 'Required'
+    errors.mobile = 'Mobile number is required'
   } else if (isNaN(Number(values.mobile))) {
     errors.mobile = 'Must be a number'
   }
   return errors
 }
 
-const renderField = ({input, label, type, meta: {touched, error, warning}, value}) => (
-  <div className='col-6'>
-    <div className='row'>
-      <div className='col-4'>
-        <label htmlFor={input.name}>{label} </label>&nbsp;
-      </div>
-      <div className='col-8'>
-        <input value={value} {...input} placeholder={label} type={type}/>
-      </div>
-    </div>
-    <div className='row form-group'>
-      <div className='col-12 has-danger'>
-        {touched && ((error && <span className='form-control-feedback'>{error}</span>) || (warning &&
-          <span className='form-control-feedback'>{warning}</span>))}
-      </div>
-    </div>
-
-  </div>
-)
-
 let UserForm = (props) => {
-  const {handleSubmit, enableEdit} = props
+  const {handleSubmit, enableEdit, title, classes, deleteUser, goTo} = props
   return (
-    <form className='container user-form' onSubmit={handleSubmit}>
-      <div className='row'>
-        <Field name='firstName' component={renderField} type='text' label='First Name' value={'test'} />
-        <Field name='lastName' component={renderField} type='text' label='Last Name' />
-      </div>
-      <div className='row'>
-        <Field name='email' component={renderField} type='text' label='Email' />
-        <Field name='mobile' component={renderField} type='text' label='Mobile' />
-      </div>
-      <div className='row'>
-        <div className='col-6'>
-          <button className='btn btn-secondary'>Cancel</button>
+    <Paper elevattion={4} className={styles['user-form']}>
+      <Typography type='display1' gutterBottom>
+        {title}
+      </Typography>
+      <form onSubmit={handleSubmit}>
+        <div className='row'>
+          <div className='col-4'>
+            <Field
+              name='firstName'
+              component={ReduxTextField}
+              label='First Name'
+            />
+          </div>
+          <div className='col-2'>&nbsp;</div>
+          <div className='col-4'>
+            <Field name='lastName' component={ReduxTextField} type='text' label='Last Name'/>
+          </div>
         </div>
-        <div className='col-6'>
-          <button className='btn btn-primary' type='submit'>{enableEdit ? 'Edit User' : 'Sign Up'}</button>
+        <div className='row'>
+          <div className='col-4'>
+            <Field name='email' component={ReduxTextField} type='text' label='Email'/>
+          </div>
+          <div className='col-2'>&nbsp;</div>
+
+          <div className='col-4'>
+            <Field name='mobile' component={ReduxTextField} type='text' label='Mobile'/>
+          </div>
         </div>
-      </div>
-    </form>
+        <div className='row'>
+          <div className='col-12'>&nbsp;</div>
+        </div>
+        <div className='row'>
+          <div className='col-6'>
+            <Button className='' onClick={() => goTo('/')}>Cancel</Button>
+          </div>
+          <div className='col-6'>
+            <Button raised color='primary' className='' type='submit'>{enableEdit ? 'Save Update' : 'Sign Up'}</Button>
+            {enableEdit ? <Button raised color='accent' onClick={deleteUser}>Delete&nbsp;<Delete /></Button> : ''}
+          </div>
+        </div>
+      </form>
+    </Paper>
   )
 }
 
 UserForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  enableEdit: PropTypes.bool
+  handleSubmit: PropTypes.func,
+  enableEdit: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+  deleteUser: PropTypes.func,
+  classes: PropTypes.object,
+  goTo: PropTypes.func.isRequired
 }
 
 export default reduxForm({
   form: 'editUser',
-  enableReinitialize: true,
   validate,
+  enableReinitialize: true,
   onSubmitFail
 })(UserForm)

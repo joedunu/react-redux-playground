@@ -1,4 +1,5 @@
 .user-form {
+  margin: 100px;
   background-color: white;
   padding: 40px;
   & input {

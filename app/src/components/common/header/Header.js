@@ -1,6 +1,6 @@
+'use strict'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Typography from 'material-ui/Typography'
@@ -26,7 +26,7 @@ const headerStyles = theme => ({
 })
 
 const Header = (props) => {
-  const { classes } = props
+  const { classes, goTo } = props
 
   return (<div className={styles.header}>
     <AppBar>
@@ -35,20 +35,18 @@ const Header = (props) => {
           <MenuIcon />
         </IconButton>
         <Typography type='title' color='inherit' className={classes.flex}>
-          React Redux Example
+          <a onClick={() => goTo('/')}>React Redux Example</a>
         </Typography>
-        <Button color='contrast'>Edit Profile</Button>
-        <Button color='contrast'>Login</Button>
-        <Button color='contrast'>
-          <Link to={'/sign-up'}>SignUp</Link>
-        </Button>
+        <Button color='contrast' onClick={() => goTo('/login')}>Login</Button>
+        <Button color='contrast' onClick={() => goTo('/sign-up')}>SignUp</Button>
       </Toolbar>
     </AppBar>
   </div>)
 }
 
 Header.proptypes = {
-  classes: PropTypes.object
+  classes: PropTypes.object,
+  goTo: PropTypes.func.isRequired
 }
 
 export default withStyles(headerStyles)(Header)

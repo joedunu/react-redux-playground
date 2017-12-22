@@ -2,6 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 const buildPath = path.resolve(__dirname, 'build')
 
 module.exports = {
@@ -47,6 +49,7 @@ module.exports = {
     }]
   },
   plugins: [
+    new CleanWebpackPlugin(['build']),
     new ExtractTextPlugin({
       filename: 'style.css',
       allChunks: true
@@ -58,7 +61,12 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: ['vendor', 'commons', 'manifest']
-    })
+    }),
+    new CopyWebpackPlugin([
+      {
+        from: './app/assets/',
+        to: './assets/'
+      }])
   ],
   resolve: {
     extensions: ['.js', '.jsx']

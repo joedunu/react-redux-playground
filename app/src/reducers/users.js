@@ -11,7 +11,11 @@ export const CREATE_USER_FAILED = 'USER/CREATE/FAILED'
 
 export const EDIT_USER_REQUESTED = 'USER/EDIT/REQUESTED'
 export const EDIT_USER_SUCCEEDED = 'USER/EDIT/SUCCEEDED'
-export const EDIT_USER_FAILED = 'USER/EDIT/FAILED'
+export const EDIT_USER_FAILED = 'USER/EDIT/FAILEQUESTED'
+
+export const DELETE_USER_REQUESTED = 'USER/DELETE/REQUESTED'
+export const DELETE_USER_SUCCEEDED = 'USER/DELETE/SUCCEEDED'
+export const DELETE_USER_FAILED = 'USER/DELETE/FAILED'
 
 export const TOGGLE_USER = 'USER/TOGGLE'
 
@@ -71,7 +75,9 @@ export const actions = {
 
   editUserRequest: (values) => ({type: EDIT_USER_REQUESTED, values}),
   editUserSuccess: (user) => ({type: EDIT_USER_SUCCEEDED, user}),
-  editUserFailed: (error) => ({type: EDIT_USER_FAILED, error})
+  editUserFailed: (error) => ({type: EDIT_USER_FAILED, error}),
+
+  deleteUserRequest: (id) => ({type: DELETE_USER_REQUESTED, id})
 }
 
 export default users

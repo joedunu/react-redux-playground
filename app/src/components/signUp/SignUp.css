@@ -1,7 +1,8 @@
 .sigunUp {
   background-color: white;
   padding: 40px;
-  & input {
+
+  . & input {
     padding: 10px;
     margin-left: 10px;
   }

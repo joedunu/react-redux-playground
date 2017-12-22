@@ -1,14 +1,18 @@
 'use strict'
 import { connect } from 'react-redux'
-import {omit} from 'lodash'
+import {findIndex} from 'lodash'
 
 import { actions as usersActions } from '../../reducers/users'
 import EditUser from './EditUser'
+import { push } from 'react-router-redux'
 
 export const mapStateToProps = (state) => {
-  console.log('State', omit(state.users[0], ['id']))
+  const editingUserIndex = findIndex(state.users, (user) => {
+    return state.appDetails.editingUser === user.id
+  })
+
   return {
-    initialValues: state.users[0]
+    initialValues: state.users[editingUserIndex]
   }
 }
 
@@ -16,6 +20,9 @@ export const mapDispatchToProps = (dispatch) => {
   return {
     updateUserRequest: (values) => {
       dispatch(usersActions.editUserRequest(values))
+    },
+    goTo: (location) => {
+      dispatch(push(location))
     }
   }
 }
