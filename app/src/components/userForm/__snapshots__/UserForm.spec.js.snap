@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UserForm snapshot test - basic props 1`] = `
+<Connect(Form(UserForm))
+  destroyOnUnmount={true}
+  enableEdit={false}
+  enableReinitialize={true}
+  forceUnregisterOnUnmount={false}
+  form="editUser"
+  getFormState={[Function]}
+  goTo={[Function]}
+  handleSubmit={[Function]}
+  keepDirtyOnReinitialize={false}
+  onSubmitFail={[Function]}
+  persistentSubmitErrors={false}
+  pure={true}
+  shouldAsyncValidate={[Function]}
+  shouldValidate={[Function]}
+  title="Some Form"
+  touchOnBlur={true}
+  touchOnChange={false}
+  validate={[Function]}
+/>
+`;
+
+exports[`UserForm snapshot test - no props 1`] = `
+<Connect(Form(UserForm))
+  destroyOnUnmount={true}
+  enableReinitialize={true}
+  forceUnregisterOnUnmount={false}
+  form="editUser"
+  getFormState={[Function]}
+  keepDirtyOnReinitialize={false}
+  onSubmitFail={[Function]}
+  persistentSubmitErrors={false}
+  pure={true}
+  shouldAsyncValidate={[Function]}
+  shouldValidate={[Function]}
+  touchOnBlur={true}
+  touchOnChange={false}
+  validate={[Function]}
+/>
+`;
