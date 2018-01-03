@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --config ./webpack.config.js",
-    "test": "NODE_ENV=test jest && istanbul check-coverage",
+    "test": "NODE_ENV=test jest",
     "lint": "standard --verbose | snazzy",
     "coverage": "istanbul check-coverage",
     "coveralls": "cat ./reports/coverage/lcov.info | node node_modules/.bin/coveralls"
@@ -119,11 +119,15 @@
     ]
   },
   "jest": {
-    "verbose": false,
-    "collectCoverage": true,
-    "moduleNameMapper": {
-      "\\.(css)$": "jest-css-modules"
+    "globals": {
+      "ENV": "DEV"
     },
+    "transform": {
+      "^.+\\.js?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [],
+    "verbose": true,
+    "collectCoverage": true,
     "collectCoverageFrom": [
       "app/**/*.js"
     ],
@@ -135,9 +139,33 @@
       "/assets/",
       "/sagas/"
     ],
-    "transform": {
-      "^.+\\.js?$": "babel-jest"
-    }
+    "coverageDirectory": "./reports/coverage/jest/",
+    "coverageReporters": [
+      "json",
+      "html",
+      "lcov",
+      "text"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 75,
+        "branches": 75,
+        "functions": 80,
+        "lines": 80
+      }
+    },
+    "testResultsProcessor": "./app/config/jest/resultsProcessor",
+    "moduleNameMapper": {
+      "\\.(css)$": "jest-css-modules",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/app/__mocks__/fileMock.js",
+      "\\.(css|scss)$": "<rootDir>/app/__mocks__/cssMock.js",
+      "react-router-redux": "<rootDir>/app/__mocks__/reactRouterReduxMock.js"
+    },
+    "setupFiles": [],
+    "setupTestFrameworkScriptFile": "<rootDir>/app/config/jest/testFrameworkSetup",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "babel": {
     "ignore": "node_modules",
