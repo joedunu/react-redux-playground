@@ -8,7 +8,7 @@ import IconButton from 'material-ui/IconButton'
 import DeleteIcon from 'material-ui-icons/Delete'
 import EditIcon from 'material-ui-icons/Edit'
 
-import styles from './UsersList.css'
+import './UsersList.css'
 
 const tableStyles = theme => ({
   root: {
@@ -30,8 +30,8 @@ class UsersList extends Component {
   render () {
     let {users, onUserClick, classes, onDelete} = this.props
     return (
-      <div className={styles['users-list']}>
-        <Paper elevation={4} className={styles['users-list', 'page']}>
+      <div className='users-list'>
+        <Paper elevation={4} className='users-list page'>
           <Typography type='display1' gutterBottom>
             Users list
           </Typography>
@@ -83,7 +83,8 @@ UsersList.propTypes = {
   onUserClick: PropTypes.func.isRequired,
   fetchAllUsers: PropTypes.func.isRequired,
   fetchAccounts: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
+  classes: PropTypes.object
 }
 
 export default withStyles(tableStyles)(UsersList)
