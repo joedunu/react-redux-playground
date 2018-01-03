@@ -6,7 +6,7 @@ import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
 import Delete from 'material-ui-icons/Delete'
 
-import styles from './UserForm.css'
+import './UserForm.css'
 import ReduxTextField from '../common/ReduxTextField/ReduxTextField'
 
 const onSubmitFail = (data) => {
@@ -41,7 +41,7 @@ const validate = values => {
 let UserForm = (props) => {
   const {handleSubmit, enableEdit, title, classes, deleteUser, goTo} = props
   return (
-    <Paper elevattion={4} className={styles['user-form']}>
+    <Paper elevattion={4} className='user-form'>
       <Typography type='display1' gutterBottom>
         {title}
       </Typography>
