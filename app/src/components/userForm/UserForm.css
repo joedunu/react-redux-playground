@@ -6,7 +6,7 @@
     padding: 10px;
     margin-left: 10px;
   }
-  .first-name {
+  & .first-name {
     background-color: aqua;
   }
   & span {

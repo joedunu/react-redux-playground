@@ -30,22 +30,25 @@ module.exports = {
       exclude: '/node_modules/'
     }, {
       test: /\.css$/,
-      use: ExtractTextPlugin.extract({
-        fallback: [{
-          loader: 'style-loader'
-        }],
-        use: [{
+      use: [
+        'style-loader',
+        {
           loader: 'css-loader',
           options: {
-            modules: true,
             sourceMap: true,
-            importLoaders: 1,
-            localIdentName: '[name]--[local]--[hash:base64:8]'
+            importLoaders: 1
           }
-        }, {
-          loader: 'postcss-loader?config=./config/postCss/postcss.config.js'
-        }]
-      })
+        },
+        {
+          loader: 'resolve-url-loader'
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            config: './config/postCss/postcss.config.js'
+          }
+        }
+      ]
     }]
   },
   plugins: [
