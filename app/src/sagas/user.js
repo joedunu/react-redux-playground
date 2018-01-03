@@ -33,7 +33,7 @@ export function * editUser (action) {
 export function * deleteUser (action) {
   try {
     const user = yield call(request.delete, `${BASE_URL}/customers/${action.id}`)
-    yield put(usersActions.deleteUserSuccess(user.data))
+    yield put(usersActions.deleteUserSuccess(action.id))
     yield put(push('/'))
   } catch (error) {
     yield put(usersActions.deleteUserFailed(error))
