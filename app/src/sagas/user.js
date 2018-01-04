@@ -4,11 +4,9 @@ import request from 'axios'
 import { omit } from 'lodash'
 import { push } from 'react-router-redux'
 import {
-  FETCH_USER_REQUESTED,
-  CREATE_USER_REQUESTED,
-  EDIT_USER_REQUESTED,
-  actions as usersActions, DELETE_USER_REQUESTED
-} from '../reducers/users'
+  types as usersTypes,
+  actions as usersActions,
+} from '../reducers/users/Users'
 import { BASE_URL } from '../constants/urlConstants'
 
 export function * addUser (action) {
@@ -50,17 +48,17 @@ export function * fetchUsers () {
 }
 
 export function * watchFetchUsers () {
-  yield takeEvery(FETCH_USER_REQUESTED, fetchUsers)
+  yield takeEvery(usersTypes.FETCH_USER_REQUESTED, fetchUsers)
 }
 
 export function * watchCreateUser () {
-  yield takeEvery(CREATE_USER_REQUESTED, addUser)
+  yield takeEvery(usersTypes.CREATE_USER_REQUESTED, addUser)
 }
 
 export function * watchEditUser () {
-  yield takeEvery(EDIT_USER_REQUESTED, editUser)
+  yield takeEvery(usersTypes.EDIT_USER_REQUESTED, editUser)
 }
 
 export function * watchDeleteUser () {
-  yield takeEvery(DELETE_USER_REQUESTED, deleteUser)
+  yield takeEvery(usersTypes.DELETE_USER_REQUESTED, deleteUser)
 }

@@ -4,7 +4,7 @@ import { formValueSelector } from 'redux-form'
 import { push } from 'react-router-redux'
 import {omit} from 'lodash'
 
-import { actions as usersActions } from '../../reducers/users'
+import { actions as usersActions } from '../../reducers/users/Users'
 import SignUP from './SignUP'
 
 const selector = formValueSelector('addNewUser')

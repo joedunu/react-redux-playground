@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`User Registration Form should pass snapshot test 1`] = `
+exports[`Edit User Form should pass snapshot test 1`] = `
 <div>
   <ReduxForm
     enableEdit={true}
-    goTo={[Function]}
+    goTo={[MockFunction]}
     initialValues={
       Object {
         "firstName": "Bob",
@@ -12,7 +12,7 @@ exports[`User Registration Form should pass snapshot test 1`] = `
         "lastName": "John",
       }
     }
-    onSubmit={[Function]}
+    onSubmit={[MockFunction]}
     title="Editing user: 0 - Bob John"
   />
 </div>

@@ -2,7 +2,7 @@
 
 exports[`User Registration Form should pass snapshot test 1`] = `
 <ReduxForm
-  goTo={[Function]}
+  goTo={[MockFunction]}
   title="Sign Up"
 />
 `;

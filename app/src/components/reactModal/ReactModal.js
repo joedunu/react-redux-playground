@@ -3,7 +3,7 @@ import Modal from 'react-modal'
 
 import styles from './ReactModal.css'
 
-Modal.setAppElement('#app')
+// Modal.setAppElement(rootElement)
 
 class ReactModal extends Component {
   constructor (props) {

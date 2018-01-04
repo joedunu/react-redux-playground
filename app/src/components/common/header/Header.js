@@ -1,4 +1,6 @@
 'use strict'
+// @flow
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import AppBar from 'material-ui/AppBar'
@@ -9,7 +11,7 @@ import MenuIcon from 'material-ui-icons/Menu'
 import Button from 'material-ui/Button'
 import { withStyles } from 'material-ui/styles'
 
-import styles from './Header.css'
+import './Header.css'
 
 const headerStyles = theme => ({
   root: {
@@ -25,10 +27,10 @@ const headerStyles = theme => ({
   }
 })
 
-const Header = (props) => {
+let Header = (props) => {
   const { classes, goTo } = props
 
-  return (<div className={styles.header}>
+  return (<div className='header'>
     <AppBar>
       <Toolbar>
         <IconButton className={classes.menuButton} color='contrast' aria-label='Menu'>

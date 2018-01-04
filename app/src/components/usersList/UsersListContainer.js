@@ -3,7 +3,7 @@
 import { connect } from 'react-redux'
 import UsersList from './UsersList'
 
-import { actions as usersActions } from '../../reducers/users'
+import { actions as usersActions } from '../../reducers/users/Users'
 import { fetchAccountRequest } from '../../reducers/account'
 import {setEditingUser} from '../../reducers/appReducer'
 
