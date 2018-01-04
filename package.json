@@ -154,7 +154,7 @@
       "/assets/",
       "/sagas/"
     ],
-    "coverageDirectory": "./reports/coverage/jest/",
+    "coverageDirectory": "./reports/coverage/",
     "coverageReporters": [
       "json",
       "html",
