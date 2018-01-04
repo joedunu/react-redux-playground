@@ -7,6 +7,9 @@ This repository demonstrate an example implementations of the following technolo
 
 - React
 - Redux
+- redux-saga
+- react-router
+- react-router-redux
 - Jest
 - standard (eslint)
 - yarn

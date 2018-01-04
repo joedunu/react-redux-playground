@@ -1,3 +1,5 @@
+// @flow
+
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Paper from 'material-ui/Paper'
@@ -21,7 +23,7 @@ const tableStyles = theme => ({
   }
 })
 
-class UsersList extends Component {
+class UsersList extends Component<Props> {
   componentDidMount () {
     this.props.fetchAllUsers()
     this.props.fetchAccounts()
@@ -74,17 +76,22 @@ class UsersList extends Component {
   }
 }
 
-UsersList.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired
-  }).isRequired).isRequired,
+type Props = {
+  users: [{
+    id: number,
+    firstName: string,
+    lastName: string,
+    email: string,
+    mobile: number
+  }],
   onUserClick: PropTypes.func.isRequired,
   fetchAllUsers: PropTypes.func.isRequired,
   fetchAccounts: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
-  classes: PropTypes.object
+  classes: {
+    table: string,
+    button: string
+  }
 }
 
 export default withStyles(tableStyles)(UsersList)
