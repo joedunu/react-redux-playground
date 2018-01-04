@@ -2,7 +2,7 @@
 import { connect } from 'react-redux'
 import {findIndex} from 'lodash'
 
-import { actions as usersActions } from '../../reducers/users'
+import { actions as usersActions } from '../../reducers/users/Users'
 import EditUser from './EditUser'
 import { push } from 'react-router-redux'
 

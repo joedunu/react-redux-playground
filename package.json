@@ -144,7 +144,7 @@
     "verbose": true,
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "app/**/*.js"
+      "app/src/**/*.js"
     ],
     "coveragePathIgnorePatterns": [
       "app/src/index.js",
@@ -163,10 +163,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 0,
-        "branches": 0,
-        "functions": 0,
-        "lines": 0
+        "statements": 5,
+        "branches": 5,
+        "functions": 5,
+        "lines": 5
       }
     },
     "testResultsProcessor": "./app/config/jest/resultsProcessor",
