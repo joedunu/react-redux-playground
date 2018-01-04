@@ -1,6 +1,6 @@
 {
-  "plugins": ["jest"],
-  "extends": ["standard", "standard-react", "standard-jsx"],
+  "plugins": ["jest", "flowtype"],
+  "extends": ["standard", "standard-react", "standard-jsx", "plugin:flowtype/recommended"],
   "env": {
     "jest": true
   }

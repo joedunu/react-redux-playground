@@ -3,7 +3,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Paper from 'material-ui/Paper'
-import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table'
+import Table, {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow
+} from 'material-ui/Table'
 import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 import IconButton from 'material-ui/IconButton'
@@ -23,6 +28,26 @@ const tableStyles = theme => ({
   }
 })
 
+type Props = {
+  users: [
+    {
+      id: number,
+      firstName: string,
+      lastName: string,
+      email: string,
+      mobile: number
+    }
+  ],
+  onUserClick: PropTypes.func.isRequired,
+  fetchAllUsers: PropTypes.func.isRequired,
+  fetchAccounts: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  classes: {
+    table: string,
+    button: string
+  }
+}
+
 class UsersList extends Component<Props> {
   componentDidMount () {
     this.props.fetchAllUsers()
@@ -30,7 +55,7 @@ class UsersList extends Component<Props> {
   }
 
   render () {
-    let {users, onUserClick, classes, onDelete} = this.props
+    let { users, onUserClick, classes, onDelete } = this.props
     return (
       <div className='users-list'>
         <Paper elevation={4} className='users-list page'>
@@ -41,9 +66,9 @@ class UsersList extends Component<Props> {
             <TableHead>
               <TableRow>
                 <TableCell numeric>User Id</TableCell>
-                <TableCell >First Name</TableCell>
-                <TableCell >Last Name</TableCell>
-                <TableCell >Email</TableCell>
+                <TableCell>First Name</TableCell>
+                <TableCell>Last Name</TableCell>
+                <TableCell>Email</TableCell>
                 <TableCell numeric>Mobile number</TableCell>
                 <TableCell numeric>&nbsp;</TableCell>
               </TableRow>
@@ -58,10 +83,18 @@ class UsersList extends Component<Props> {
                     <TableCell>{user.email}</TableCell>
                     <TableCell numeric>{user.mobile}</TableCell>
                     <TableCell numeric>
-                      <IconButton className={classes.button} aria-label='Edit' onClick={() => onUserClick(user.id)}>
+                      <IconButton
+                        className={classes.button}
+                        aria-label='Edit'
+                        onClick={() => onUserClick(user.id)}
+                      >
                         <EditIcon />
                       </IconButton>
-                      <IconButton className={classes.button} aria-label='Delete' onClick={() => onDelete(user.id)}>
+                      <IconButton
+                        className={classes.button}
+                        aria-label='Delete'
+                        onClick={() => onDelete(user.id)}
+                      >
                         <DeleteIcon />
                       </IconButton>
                     </TableCell>
@@ -73,24 +106,6 @@ class UsersList extends Component<Props> {
         </Paper>
       </div>
     )
-  }
-}
-
-type Props = {
-  users: [{
-    id: number,
-    firstName: string,
-    lastName: string,
-    email: string,
-    mobile: number
-  }],
-  onUserClick: PropTypes.func.isRequired,
-  fetchAllUsers: PropTypes.func.isRequired,
-  fetchAccounts: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  classes: {
-    table: string,
-    button: string
   }
 }
 
