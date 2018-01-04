@@ -8,17 +8,20 @@ exports[`UserForm snapshot test - basic props 1`] = `
   forceUnregisterOnUnmount={false}
   form="editUser"
   getFormState={[Function]}
-  goTo={[Function]}
-  handleSubmit={[Function]}
+  goTo={[MockFunction]}
+  handleSubmit={[MockFunction]}
   keepDirtyOnReinitialize={false}
   onSubmitFail={[Function]}
   persistentSubmitErrors={false}
   pure={true}
   shouldAsyncValidate={[Function]}
+  shouldError={[Function]}
   shouldValidate={[Function]}
+  shouldWarn={[Function]}
   title="Some Form"
   touchOnBlur={true}
   touchOnChange={false}
+  updateUnregisteredFields={false}
   validate={[Function]}
 />
 `;
@@ -35,9 +38,12 @@ exports[`UserForm snapshot test - no props 1`] = `
   persistentSubmitErrors={false}
   pure={true}
   shouldAsyncValidate={[Function]}
+  shouldError={[Function]}
   shouldValidate={[Function]}
+  shouldWarn={[Function]}
   touchOnBlur={true}
   touchOnChange={false}
+  updateUnregisteredFields={false}
   validate={[Function]}
 />
 `;

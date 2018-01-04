@@ -6,7 +6,7 @@ import configureMockStore from 'redux-mock-store'
 import EditUser from './EditUser'
 import PropTypes from 'prop-types'
 
-describe('User Registration Form', () => {
+describe('Edit User Form', () => {
   const mockStore = configureMockStore([])
   let store
   let combinedReducersState = {}

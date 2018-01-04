@@ -1,25 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer should pass snapshot test 1`] = `
-<div>
-  <withStyles(BottomNavigation)
-    className=""
-    onChange={[Function]}
-    showLabels={true}
-    value={0}
-  >
-    <withStyles(BottomNavigationButton)
-      icon={<pure(Restore) />}
-      label="Recents"
-    />
-    <withStyles(BottomNavigationButton)
-      icon={<pure(Favorite) />}
-      label="Favorites"
-    />
-    <withStyles(BottomNavigationButton)
-      icon={<pure(LocationOn) />}
-      label="Nearby"
-    />
-  </withStyles(BottomNavigation)>
+<div
+  className="footer"
+>
+  © React Redux Example
 </div>
 `;
