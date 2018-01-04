@@ -39,5 +39,14 @@ describe('UsersReducer', () => {
         })
       ).toEqual([{firstName: 'David'}])
     })
+
+    test('handles DELETE_USER_SUCCEEDED', () => {
+      expect(
+        UsersReducer([{firstName: 'David', id: 1}], {
+          type: types.DELETE_USER_SUCCEEDED,
+          id: 1
+        })
+      ).toEqual([])
+    })
   })
 })

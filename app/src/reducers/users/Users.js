@@ -1,5 +1,5 @@
 'use strict'
-import { findIndex, remove } from 'lodash'
+import _ from 'lodash'
 
 export const types = {
   FETCH_USER_REQUESTED: 'USER/FETCH/REQUESTED',
@@ -54,14 +54,14 @@ const users = (state = [], action) => {
       return newState
     case types.EDIT_USER_REQUESTED:
       let editState = state.slice()
-      const userIndex = findIndex(editState, (user) => {
+      const userIndex = _.findIndex(editState, (user) => {
         return user.id === action.values.id
       })
       editState[userIndex] = action.values
       return editState
     case types.DELETE_USER_SUCCEEDED:
       let deleteState = state.slice()
-      remove(deleteState, (user) => {
+      _.remove(deleteState, (user) => {
         return user.id === action.id
       })
       return deleteState
