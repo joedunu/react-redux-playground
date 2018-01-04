@@ -1,40 +1,40 @@
 <testsuites name="jest tests">
-  <testsuite name="UsersReducer" errors="0" failures="0" skipped="0" timestamp="2018-01-04T03:35:25" time="0.854" tests="2">
-    <testcase classname="UsersReducer types returns users reducer types" name="UsersReducer types returns users reducer types" time="0.006">
-    </testcase>
-    <testcase classname="UsersReducer reducer handles TOGGLE_USER" name="UsersReducer reducer handles TOGGLE_USER" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="UserForm" errors="0" failures="0" skipped="0" timestamp="2018-01-04T03:35:26" time="1.403" tests="2">
-    <testcase classname="UserForm snapshot test - no props" name="UserForm snapshot test - no props" time="0.01">
+  <testsuite name="UserForm" errors="0" failures="0" skipped="0" timestamp="2018-01-04T04:29:47" time="3.302" tests="2">
+    <testcase classname="UserForm snapshot test - no props" name="UserForm snapshot test - no props" time="0.016">
     </testcase>
     <testcase classname="UserForm snapshot test - basic props" name="UserForm snapshot test - basic props" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="App" errors="0" failures="0" skipped="0" timestamp="2018-01-04T03:35:27" time="0.657" tests="1">
-    <testcase classname="App should pass snapshot test" name="App should pass snapshot test" time="0.006">
+  <testsuite name="UsersReducer" errors="0" failures="0" skipped="0" timestamp="2018-01-04T04:29:50" time="0.236" tests="2">
+    <testcase classname="UsersReducer types returns users reducer types" name="UsersReducer types returns users reducer types" time="0.002">
+    </testcase>
+    <testcase classname="UsersReducer reducer handles TOGGLE_USER" name="UsersReducer reducer handles TOGGLE_USER" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="Edit User Form" errors="0" failures="0" skipped="0" timestamp="2018-01-04T03:35:28" time="0.369" tests="4">
-    <testcase classname="Edit User Form should pass snapshot test" name="Edit User Form should pass snapshot test" time="0.004">
+  <testsuite name="App" errors="0" failures="0" skipped="0" timestamp="2018-01-04T04:29:50" time="1.089" tests="1">
+    <testcase classname="App should pass snapshot test" name="App should pass snapshot test" time="0.015">
     </testcase>
-    <testcase classname="Edit User Form should be selectable by class &quot;userRegistrationForm&quot;" name="Edit User Form should be selectable by class &quot;userRegistrationForm&quot;" time="0.019">
+  </testsuite>
+  <testsuite name="Edit User Form" errors="0" failures="0" skipped="0" timestamp="2018-01-04T04:29:51" time="0.526" tests="4">
+    <testcase classname="Edit User Form should pass snapshot test" name="Edit User Form should pass snapshot test" time="0.006">
     </testcase>
-    <testcase classname="Edit User Form should mount in a full DOM" name="Edit User Form should mount in a full DOM" time="0.002">
+    <testcase classname="Edit User Form should be selectable by class &quot;userRegistrationForm&quot;" name="Edit User Form should be selectable by class &quot;userRegistrationForm&quot;" time="0.031">
+    </testcase>
+    <testcase classname="Edit User Form should mount in a full DOM" name="Edit User Form should mount in a full DOM" time="0.004">
     </testcase>
     <testcase classname="Edit User Form should render to static HTML" name="Edit User Form should render to static HTML" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="User Registration Form" errors="0" failures="0" skipped="0" timestamp="2018-01-04T03:35:28" time="0.352" tests="1">
-    <testcase classname="User Registration Form should pass snapshot test" name="User Registration Form should pass snapshot test" time="0.003">
+  <testsuite name="User Registration Form" errors="0" failures="0" skipped="0" timestamp="2018-01-04T04:29:52" time="0.539" tests="1">
+    <testcase classname="User Registration Form should pass snapshot test" name="User Registration Form should pass snapshot test" time="0.005">
     </testcase>
   </testsuite>
-  <testsuite name="Header" errors="0" failures="0" skipped="0" timestamp="2018-01-04T03:35:28" time="0.315" tests="1">
-    <testcase classname="Header snapshot test" name="Header snapshot test" time="0.015">
+  <testsuite name="Header" errors="0" failures="0" skipped="0" timestamp="2018-01-04T04:29:53" time="0.448" tests="1">
+    <testcase classname="Header snapshot test" name="Header snapshot test" time="0.019">
     </testcase>
   </testsuite>
-  <testsuite name="Footer" errors="0" failures="0" skipped="0" timestamp="2018-01-04T03:35:29" time="0.259" tests="1">
-    <testcase classname="Footer should pass snapshot test" name="Footer should pass snapshot test" time="0.003">
+  <testsuite name="Footer" errors="0" failures="0" skipped="0" timestamp="2018-01-04T04:29:53" time="0.313" tests="1">
+    <testcase classname="Footer should pass snapshot test" name="Footer should pass snapshot test" time="0.004">
     </testcase>
   </testsuite>
 </testsuites>

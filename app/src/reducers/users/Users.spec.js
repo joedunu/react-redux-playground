@@ -30,5 +30,14 @@ describe('UsersReducer', () => {
         })
       ).toEqual([])
     })
+
+    test('handles CREATE_USER_SUCCEEDED', () => {
+      expect(
+        UsersReducer(undefined, {
+          type: types.CREATE_USER_SUCCEEDED,
+          user: {firstName: 'David'}
+        })
+      ).toEqual([{firstName: 'David'}])
+    })
   })
 })
