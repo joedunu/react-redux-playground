@@ -163,10 +163,10 @@
     ],
     "coverageThreshold": {
       "global": {
-        "statements": 30,
-        "branches": 7.5,
-        "functions": 9,
-        "lines": 31.5
+        "statements": 32,
+        "branches": 9.5,
+        "functions": 10.5,
+        "lines": 34
       }
     },
     "testResultsProcessor": "./app/config/jest/resultsProcessor",
