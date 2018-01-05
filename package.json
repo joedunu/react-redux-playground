@@ -12,7 +12,8 @@
     "test": "NODE_ENV=test jest",
     "lint": "standard --verbose | snazzy",
     "coveralls": "cat ./reports/coverage/lcov.info | node node_modules/.bin/coveralls",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepush": "yarn test"
   },
   "repository": {
     "type": "git",
@@ -120,11 +121,6 @@
     "webpack": "^2.4.1",
     "webpack-dev-server": "^2.4.2"
   },
-  "husky": {
-    "hooks": {
-      "pre-push": "yarn test"
-    }
-  },
   "lint-staged": {
     "linters": {
       "app/src/**/*.js": [
@@ -187,7 +183,7 @@
         "statements": 32,
         "branches": 9.5,
         "functions": 10.5,
-        "lines": 34
+        "lines": 33.5
       }
     },
     "testResultsProcessor": "./app/config/jest/resultsProcessor",
