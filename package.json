@@ -11,8 +11,7 @@
     "build": "webpack --config ./webpack.config.js",
     "test": "NODE_ENV=test jest",
     "lint": "standard --verbose | snazzy",
-    "coveralls": "cat ./reports/coverage/lcov.info | node node_modules/.bin/coveralls",
-    "precommit": "lint-staged"
+    "coveralls": "cat ./reports/coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "repository": {
     "type": "git",
@@ -122,7 +121,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn test"
+      "pre-push": "yarn test",
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
