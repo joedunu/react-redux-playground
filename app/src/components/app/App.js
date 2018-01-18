@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { ConnectedRouter } from 'react-router-redux'
-import { connect } from 'react-redux'
 import { Route } from 'react-router-dom'
 
 import HeaderContainer from '../common/header/HeaderContainer'
@@ -35,11 +34,12 @@ class App extends Component {
         <Footer />
       </div>
     )
-  }}
+  }
+}
 
 App.propTypes = {
   store: PropTypes.object,
   history: PropTypes.object.isRequired
 }
 
-export default connect()(App)
+export default App

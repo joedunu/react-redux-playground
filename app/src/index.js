@@ -9,7 +9,7 @@ import { routerMiddleware } from 'react-router-redux'
 import createHistory from 'history/createHashHistory'
 
 import rootSaga from './sagas'
-import App from './components/app/App'
+import AppContainer from './components/app/AppContainer'
 import rootReducer from './reducers/index'
 
 const rootElement = document.getElementById('app')
@@ -33,7 +33,7 @@ sagaMiddleware.run(rootSaga)
 
 render(
   <Provider store={store}>
-    <App history={history} />
+    <AppContainer history={history} />
   </Provider>,
   rootElement
 )
