@@ -9,10 +9,10 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack --config ./webpack.config.js",
-    "test": "NODE_ENV=test jest",
+    "test": "NODE_ENV=test jest && istanbul check-coverage",
     "lint": "standard --verbose | snazzy",
     "coveralls": "cat ./reports/coverage/lcov.info | node node_modules/.bin/coveralls",
-    "precommit": "lint-staged",
+    "precommit": "lint-staged | yarn flow",
     "prepush": "yarn test"
   },
   "repository": {
@@ -63,8 +63,8 @@
     "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
     "babel-plugin-transform-es3-property-literals": "^6.22.0",
     "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
-    "babel-preset-es2017": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -92,6 +92,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^2.1.0",
     "flow-bin": "^0.62.0",
+    "flow-coverage-report": "^0.4.0",
     "html-webpack-plugin": "^2.28.0",
     "husky": "^0.14.3",
     "istanbul": "^0.4.5",
@@ -126,7 +127,6 @@
     "linters": {
       "app/src/**/*.js": [
         "prettier-standard",
-        "yarn run flow",
         "git add"
       ]
     }
@@ -152,15 +152,11 @@
     ]
   },
   "jest": {
-    "globals": {
-      "ENV": "DEV"
-    },
-    "transform": {
-      "^.+\\.js?$": "babel-jest"
-    },
-    "transformIgnorePatterns": [],
-    "verbose": true,
+    "verbose": false,
     "collectCoverage": true,
+    "moduleNameMapper": {
+      "\\.(css)$": "jest-css-modules"
+    },
     "collectCoverageFrom": [
       "app/src/**/*.js"
     ],
@@ -172,27 +168,16 @@
       "/assets/",
       "/sagas/"
     ],
-    "coverageDirectory": "./reports/coverage/",
+    "coverageDirectory": "./reports/coverage/jest/",
     "coverageReporters": [
       "json",
       "html",
       "lcov",
       "text"
     ],
-    "coverageThreshold": {
-      "global": {
-        "statements": 32,
-        "branches": 9.5,
-        "functions": 10.5,
-        "lines": 33.5
-      }
-    },
     "testResultsProcessor": "./app/config/jest/resultsProcessor",
-    "moduleNameMapper": {
-      "\\.(css)$": "jest-css-modules"
-    },
     "setupFiles": [],
-    "setupTestFrameworkScriptFile": "<rootDir>/app/config/jest/testFrameworkSetup",
+    "setupTestFrameworkScriptFile": "./app/config/jest/testFrameworkSetup",
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]
@@ -203,7 +188,7 @@
       "react",
       "flow",
       [
-        "es2015",
+        "env",
         {
           "modules": false,
           "loose": true
@@ -217,5 +202,20 @@
         ]
       }
     }
+  },
+  "flow-coverage-report": {
+    "excludeGlob": [
+      "app/src/**/*.spec.js"
+    ],
+    "includeGlob": [
+      "app/src/**/*.js"
+    ],
+    "outputDir": "./reports/coverage/flow/",
+    "threshold": 40,
+    "type": [
+      "text",
+      "html",
+      "json"
+    ]
   }
 }

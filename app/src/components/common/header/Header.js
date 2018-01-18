@@ -1,5 +1,4 @@
 'use strict'
-// @flow
 
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -27,23 +26,33 @@ const headerStyles = theme => ({
   }
 })
 
-let Header = (props) => {
+let Header = props => {
   const { classes, goTo } = props
 
-  return (<div className='header'>
-    <AppBar>
-      <Toolbar>
-        <IconButton className={classes.menuButton} color='contrast' aria-label='Menu'>
-          <MenuIcon />
-        </IconButton>
-        <Typography type='title' color='inherit' className={classes.flex}>
-          <a onClick={() => goTo('/')}>React Redux Example</a>
-        </Typography>
-        <Button color='contrast' onClick={() => goTo('/login')}>Login</Button>
-        <Button color='contrast' onClick={() => goTo('/sign-up')}>SignUp</Button>
-      </Toolbar>
-    </AppBar>
-  </div>)
+  return (
+    <div className='header'>
+      <AppBar>
+        <Toolbar>
+          <IconButton
+            className={classes.menuButton}
+            color='contrast'
+            aria-label='Menu'
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography type='title' color='inherit' className={classes.flex}>
+            <a onClick={() => goTo('/')}>React Redux Example</a>
+          </Typography>
+          <Button color='contrast' onClick={() => goTo('/login')}>
+            Login
+          </Button>
+          <Button color='contrast' onClick={() => goTo('/sign-up')}>
+            SignUp
+          </Button>
+        </Toolbar>
+      </AppBar>
+    </div>
+  )
 }
 
 Header.proptypes = {

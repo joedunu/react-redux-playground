@@ -1,5 +1,4 @@
 'use strict'
-// @flow
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Field, reduxForm } from 'redux-form'
@@ -11,7 +10,7 @@ import Delete from 'material-ui-icons/Delete'
 import './UserForm.css'
 import ReduxTextField from '../common/ReduxTextField/ReduxTextField'
 
-const onSubmitFail = (data) => {
+const onSubmitFail = data => {
   console.log('onSubmitFail: ', data)
 }
 
@@ -29,7 +28,10 @@ const validate = values => {
   }
   if (!values.email) {
     errors.email = 'Email is required'
-  } else if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+  } else if (
+    values.email &&
+    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+  ) {
     errors.email = 'Invalid email address'
   }
   if (!values.mobile) {
@@ -40,8 +42,8 @@ const validate = values => {
   return errors
 }
 
-let UserForm = (props) => {
-  const {handleSubmit, enableEdit, title, classes, deleteUser, goTo} = props
+let UserForm = props => {
+  const { handleSubmit, enableEdit, title, classes, deleteUser, goTo } = props
   return (
     <Paper elevattion={4} className='user-form'>
       <Typography type='display1' gutterBottom>
@@ -58,17 +60,32 @@ let UserForm = (props) => {
           </div>
           <div className='col-2'>&nbsp;</div>
           <div className='col-4'>
-            <Field name='lastName' component={ReduxTextField} type='text' label='Last Name'/>
+            <Field
+              name='lastName'
+              component={ReduxTextField}
+              type='text'
+              label='Last Name'
+            />
           </div>
         </div>
         <div className='row'>
           <div className='col-4'>
-            <Field name='email' component={ReduxTextField} type='text' label='Email'/>
+            <Field
+              name='email'
+              component={ReduxTextField}
+              type='text'
+              label='Email'
+            />
           </div>
           <div className='col-2'>&nbsp;</div>
 
           <div className='col-4'>
-            <Field name='mobile' component={ReduxTextField} type='text' label='Mobile'/>
+            <Field
+              name='mobile'
+              component={ReduxTextField}
+              type='text'
+              label='Mobile'
+            />
           </div>
         </div>
         <div className='row'>
@@ -76,11 +93,21 @@ let UserForm = (props) => {
         </div>
         <div className='row'>
           <div className='col-6'>
-            <Button className='' onClick={() => goTo('/')}>Cancel</Button>
+            <Button className='' onClick={() => goTo('/')}>
+              Cancel
+            </Button>
           </div>
           <div className='col-6'>
-            <Button raised color='primary' className='' type='submit'>{enableEdit ? 'Save Update' : 'Sign Up'}</Button>
-            {enableEdit ? <Button raised color='accent' onClick={deleteUser}>Delete&nbsp;<Delete /></Button> : ''}
+            <Button raised color='primary' className='' type='submit'>
+              {enableEdit ? 'Save Update' : 'Sign Up'}
+            </Button>
+            {enableEdit ? (
+              <Button raised color='accent' onClick={deleteUser}>
+                Delete&nbsp;<Delete />
+              </Button>
+            ) : (
+              ''
+            )}
           </div>
         </div>
       </form>

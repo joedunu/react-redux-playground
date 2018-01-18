@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Paper from 'material-ui/Paper'
 import Table, {
   TableBody,
@@ -38,10 +37,10 @@ type Props = {
       mobile: number
     }
   ],
-  onUserClick: PropTypes.func.isRequired,
-  fetchAllUsers: PropTypes.func.isRequired,
-  fetchAccounts: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
+  onUserClick: Function,
+  fetchAllUsers: Function,
+  fetchAccounts: Function,
+  onDelete: Function,
   classes: {
     table: string,
     button: string
