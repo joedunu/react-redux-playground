@@ -19,10 +19,10 @@ reporting:
     dir: ./reports/coverage
 check:
     global:
-        statements: 10
-        lines: 10
-        branches: 10
-        functions: 10
+        statements: 8
+        lines: 8
+        branches: 8
+        functions: 8
         excludes: []
     each:
         statements: 0

@@ -12,7 +12,7 @@ import { routerMiddleware } from 'react-router-redux'
 import createHistory from 'history/createHashHistory'
 
 import rootSaga from './sagas'
-import AppContainer from './components/app/App'
+import AppContainer from './components/app/AppContainer'
 import rootReducer from './reducers/index'
 
 const rootElement: any = document.getElementById('app')
