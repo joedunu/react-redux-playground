@@ -16,7 +16,7 @@ const onSubmitFail = (data) => {
 }
 
 const validate = values => {
-  const errors = {}
+  let errors = {}
   if (!values.firstName) {
     errors.firstName = 'First name is required'
   } else if (values.firstName.length < 2) {
