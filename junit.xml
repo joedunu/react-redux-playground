@@ -1,42 +1,102 @@
 <testsuites name="jest tests">
-  <testsuite name="UsersReducer" errors="0" failures="0" skipped="0" timestamp="2018-01-04T05:50:28" time="1.35" tests="3">
-    <testcase classname="UsersReducer types returns users reducer types" name="UsersReducer types returns users reducer types" time="0.009">
+  <testsuite name="UsersReducer" errors="0" failures="0" skipped="0" timestamp="2018-04-04T05:39:44" time="16.67" tests="4">
+    <testcase classname="UsersReducer types returns users reducer types" name="UsersReducer types returns users reducer types" time="0.005">
     </testcase>
     <testcase classname="UsersReducer reducer handles TOGGLE_USER" name="UsersReducer reducer handles TOGGLE_USER" time="0.001">
     </testcase>
-    <testcase classname="UsersReducer reducer handles CREATE_USER_SUCCEEDED" name="UsersReducer reducer handles CREATE_USER_SUCCEEDED" time="0.002">
+    <testcase classname="UsersReducer reducer handles CREATE_USER_SUCCEEDED" name="UsersReducer reducer handles CREATE_USER_SUCCEEDED" time="0">
+    </testcase>
+    <testcase classname="UsersReducer reducer handles DELETE_USER_SUCCEEDED" name="UsersReducer reducer handles DELETE_USER_SUCCEEDED" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Footer" errors="0" failures="0" skipped="0" timestamp="2018-01-04T05:50:28" time="2.522" tests="1">
-    <testcase classname="Footer should pass snapshot test" name="Footer should pass snapshot test" time="0.019">
+  <testsuite name="Footer" errors="0" failures="0" skipped="0" timestamp="2018-04-04T05:39:44" time="21.426" tests="1">
+    <testcase classname="Footer should pass snapshot test" name="Footer should pass snapshot test" time="0.009">
     </testcase>
   </testsuite>
-  <testsuite name="Header" errors="0" failures="0" skipped="0" timestamp="2018-01-04T05:50:28" time="2.92" tests="1">
-    <testcase classname="Header snapshot test" name="Header snapshot test" time="0.032">
+  <testsuite name="User Registration Form" errors="0" failures="0" skipped="0" timestamp="2018-04-04T05:39:48" time="19.095" tests="1">
+    <testcase classname="User Registration Form should pass snapshot test" name="User Registration Form should pass snapshot test" time="0.01">
     </testcase>
   </testsuite>
-  <testsuite name="UserForm" errors="0" failures="0" skipped="0" timestamp="2018-01-04T05:50:28" time="3.116" tests="2">
-    <testcase classname="UserForm snapshot test - no props" name="UserForm snapshot test - no props" time="0.013">
+  <testsuite name="UserForm" errors="0" failures="0" skipped="0" timestamp="2018-04-04T05:39:44" time="24.263" tests="2">
+    <testcase classname="UserForm snapshot test - no props" name="UserForm snapshot test - no props" time="0.01">
     </testcase>
     <testcase classname="UserForm snapshot test - basic props" name="UserForm snapshot test - basic props" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="User Registration Form" errors="0" failures="0" skipped="0" timestamp="2018-01-04T05:50:28" time="3.15" tests="1">
-    <testcase classname="User Registration Form should pass snapshot test" name="User Registration Form should pass snapshot test" time="0.013">
-    </testcase>
-  </testsuite>
-  <testsuite name="Edit User Form" errors="0" failures="0" skipped="0" timestamp="2018-01-04T05:50:28" time="3.205" tests="4">
-    <testcase classname="Edit User Form should pass snapshot test" name="Edit User Form should pass snapshot test" time="0.015">
-    </testcase>
-    <testcase classname="Edit User Form should be selectable by class &quot;userRegistrationForm&quot;" name="Edit User Form should be selectable by class &quot;userRegistrationForm&quot;" time="0.02">
-    </testcase>
-    <testcase classname="Edit User Form should mount in a full DOM" name="Edit User Form should mount in a full DOM" time="0.003">
-    </testcase>
-    <testcase classname="Edit User Form should render to static HTML" name="Edit User Form should render to static HTML" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="App" errors="0" failures="0" skipped="0" timestamp="2018-01-04T05:50:28" time="3.393" tests="1">
+  <testsuite name="App" errors="0" failures="1" skipped="0" timestamp="2018-04-04T05:39:44" time="24.776" tests="1">
     <testcase classname="App should pass snapshot test" name="App should pass snapshot test" time="0.018">
+      <failure>Error: expect(value).toMatchSnapshot()
+
+Received value does not match stored snapshot 1.
+
+- Snapshot
++ Received
+
+- &lt;App
+-   dispatch={[Function]}
+-   history={Object {}}
+-   store={
+-     Object {
+-       &quot;clearActions&quot;: [Function],
+-       &quot;dispatch&quot;: [Function],
+-       &quot;getActions&quot;: [Function],
+-       &quot;getState&quot;: [Function],
+-       &quot;replaceReducer&quot;: [Function],
+-       &quot;subscribe&quot;: [Function],
+-     }
+-   }
+- /&gt;
++ &lt;div&gt;
++   &lt;Connect(WithStyles(Header))
++     history={Object {}}
++   /&gt;
++   &lt;ConnectedRouter
++     history={Object {}}
++   &gt;
++     &lt;div&gt;
++       &lt;Route
++         component={[Function]}
++         path=&quot;/sign-up&quot;
++       /&gt;
++       &lt;Route
++         component={[Function]}
++         exact={true}
++         path=&quot;/&quot;
++       /&gt;
++       &lt;Route
++         component={[Function]}
++         path=&quot;/react-modal&quot;
++       /&gt;
++       &lt;Route
++         component={[Function]}
++         path=&quot;/edit-user&quot;
++       /&gt;
++     &lt;/div&gt;
++   &lt;/ConnectedRouter&gt;
++   &lt;Footer /&gt;
++ &lt;/div&gt;
+    at Object.&lt;anonymous&gt; (/Users/dunuhapa/Development/Trials/react-redux-example/app/src/components/app/App.spec.js:26:18)
+    at Object.asyncFn (/Users/dunuhapa/Development/Trials/react-redux-example/node_modules/jest-jasmine2/build/jasmine_async.js:129:432)
+    at resolve (/Users/dunuhapa/Development/Trials/react-redux-example/node_modules/jest-jasmine2/build/queue_runner.js:51:12)
+    at new Promise (&lt;anonymous&gt;)
+    at mapper (/Users/dunuhapa/Development/Trials/react-redux-example/node_modules/jest-jasmine2/build/queue_runner.js:40:274)
+    at promise.then (/Users/dunuhapa/Development/Trials/react-redux-example/node_modules/jest-jasmine2/build/queue_runner.js:83:39)
+    at &lt;anonymous&gt;
+    at process._tickCallback (internal/process/next_tick.js:188:7)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Edit User Form" errors="0" failures="0" skipped="0" timestamp="2018-04-04T05:39:44" time="27.586" tests="4">
+    <testcase classname="Edit User Form should pass snapshot test" name="Edit User Form should pass snapshot test" time="0.011">
+    </testcase>
+    <testcase classname="Edit User Form should be selectable by class &quot;userRegistrationForm&quot;" name="Edit User Form should be selectable by class &quot;userRegistrationForm&quot;" time="0.015">
+    </testcase>
+    <testcase classname="Edit User Form should mount in a full DOM" name="Edit User Form should mount in a full DOM" time="0.002">
+    </testcase>
+    <testcase classname="Edit User Form should render to static HTML" name="Edit User Form should render to static HTML" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Header" errors="0" failures="0" skipped="0" timestamp="2018-04-04T05:39:44" time="27.751" tests="1">
+    <testcase classname="Header snapshot test" name="Header snapshot test" time="0.022">
     </testcase>
   </testsuite>
 </testsuites>

@@ -46,7 +46,7 @@ let Header = (props) => {
   </div>)
 }
 
-Header.proptypes = {
+Header.propTypes = {
   classes: PropTypes.object,
   goTo: PropTypes.func.isRequired
 }
