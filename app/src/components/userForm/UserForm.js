@@ -94,7 +94,8 @@ UserForm.propTypes = {
   title: PropTypes.string.isRequired,
   deleteUser: PropTypes.func,
   classes: PropTypes.object,
-  goTo: PropTypes.func.isRequired
+  goTo: PropTypes.func.isRequired,
+  formErrors: PropTypes.object.isRequired
 }
 
 export default reduxForm({
