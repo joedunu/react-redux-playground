@@ -16,7 +16,7 @@ const onSubmitFail = (data) => {
 }
 
 const validate = values => {
-  const errors = {}
+  let errors = {}
   if (!values.firstName) {
     errors.firstName = 'First name is required'
   } else if (values.firstName.length < 2) {
@@ -94,7 +94,8 @@ UserForm.propTypes = {
   title: PropTypes.string.isRequired,
   deleteUser: PropTypes.func,
   classes: PropTypes.object,
-  goTo: PropTypes.func.isRequired
+  goTo: PropTypes.func.isRequired,
+  formErrors: PropTypes.object.isRequired
 }
 
 export default reduxForm({
