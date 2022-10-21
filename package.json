@@ -95,7 +95,7 @@
     "jest-styled-components": "^4.9.0",
     "json-loader": "^0.5.4",
     "jss-vendor-prefixer": "^7.0.0",
-    "postcss": "^6.0.14",
+    "postcss": "^7.0.36",
     "postcss-cssnext": "^2.10.0",
     "postcss-extend": "^1.0.5",
     "postcss-import": "^9.1.0",
